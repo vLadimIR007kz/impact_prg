@@ -1,0 +1,4952 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.916582,43.243261 ]
+    },
+    "properties": {
+    "Identification (int)":1,
+    "Address":"Kurmangazy145_1r",
+    "District/ Street":"Mukanov ",
+    "Type":"ramp",
+    "Category":"green ",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/136ONaD32TaaxK9NZ231LpOARfNj1wHSz/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.916794,43.242741 ]
+    },
+    "properties": {
+    "Identification (int)":2,
+    "Address":"Kurmangazy145_2r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/1gRljv4XUR4c8fdr9_bsTGEu-YxFawa9A/view?usp=drivesdk",
+    "Commentary":"able to pass through outwards from the building "
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917530,43.242813 ]
+    },
+    "properties": {
+    "Identification (int)":3,
+    "Address":"Kurmangazy145_3r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/1gVI0_6ZWOS8QVkBu9YcuhfMKYJiq5NIa/view?usp=drivesdk",
+    "Commentary":"mirroring the previous one"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917861,43.243280 ]
+    },
+    "properties": {
+    "Identification (int)":4,
+    "Address":"Kurmangazy145_4r",
+    "District/ Street":"Kozhamkulov ",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/1CagvJn9Vv8RjIuUsWBN0sjNmKfaXryHf/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917773,43.243009 ]
+    },
+    "properties": {
+    "Identification (int)":5,
+    "Address":"kurmangazy145_5r",
+    "District/ Street":"Kozhamkulov",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/12KyQ1ib568oxxRyZLCgkVDWx-QsXOhig/view?usp=drivesdk",
+    "Commentary":"entrance to a business \"GiGi\""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919165,43.242276 ]
+    },
+    "properties": {
+    "Identification (int)":6,
+    "Address":"MukhtarAuezov_1s",
+    "District/ Street":"Kurmangazy ",
+    "Type":"stairs",
+    "Category":"black",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/176PEDqlX4XfhtwuE19I6kyMuKsgdQLLH/view?usp=drivesdk",
+    "Commentary":"no accessibility for wheelchairs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919056,43.241516 ]
+    },
+    "properties": {
+    "Identification (int)":7,
+    "Address":"MukhtarAuezov_2s",
+    "District/ Street":"Abay",
+    "Type":"stairs",
+    "Category":"black",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/1cjf-xhhIE6SgZDl837zD-GpfsuWLw5sV/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919030,43.241132 ]
+    },
+    "properties": {
+    "Identification (int)":8,
+    "Address":"MukhtarAuezov_3s",
+    "District/ Street":"Abay",
+    "Type":"stairs",
+    "Category":"black",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/1l4TspPWv899DhSKzKanTKqYj6FVM9MwI/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919379,43.241141 ]
+    },
+    "properties": {
+    "Identification (int)":9,
+    "Address":"MukhtarAuezov_1b",
+    "District/ Street":"Abay",
+    "Type":"bridge",
+    "Category":"black",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/1fsPyZdqfXyq6viQzQnel9bdozBy96qRH/view?usp=drivesdk",
+    "Commentary":"both sides no ramps"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919490,43.241147 ]
+    },
+    "properties": {
+    "Identification (int)":10,
+    "Address":"MukhtarAuezov_4s",
+    "District/ Street":"Abay",
+    "Type":"stairs",
+    "Category":"black",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/1CXYrpzxrrnPC9KG5AaFmo6MoSPyowuuk/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919633,43.240976 ]
+    },
+    "properties": {
+    "Identification (int)":11,
+    "Address":"Abay101a_1s",
+    "District/ Street":"Abay",
+    "Type":"stairs",
+    "Category":"black",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/15jOFDz1NbKfU-0eCPc4qZv6ezsOADj7o/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.920053,43.240963 ]
+    },
+    "properties": {
+    "Identification (int)":12,
+    "Address":"Abay101a_2s",
+    "District/ Street":"Abay",
+    "Type":"stairs",
+    "Category":"black",
+    "Date":"22/04/2024",
+    "Photo":"https://drive.google.com/file/d/16K3sOdlXe8BPMJXLJRPl1gaXPNyWPOm6/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918562,43.241534 ]
+    },
+    "properties": {
+    "Identification (int)":13,
+    "Address":"MukhtarAuezov_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1AZQBrdAiKAJZUracM3sTbtUBbyOsMwLM/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919689,43.240653 ]
+    },
+    "properties": {
+    "Identification (int)":14,
+    "Address":"River_1r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"green ",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1ueqtWnMgxALfHhzF87b8rgJ2p2TwWEfI/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918329,43.241241 ]
+    },
+    "properties": {
+    "Identification (int)":15,
+    "Address":"MukhtarAuezov_2r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1_jXkYq6k_YKBl5eSznDlpDmyeu4snrfa/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.920234,43.241042 ]
+    },
+    "properties": {
+    "Identification (int)":16,
+    "Address":"Центральный дворец бракосочетания- 1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1eQ8aq5mTI2q2uGHt3e3ouYkRMCClYJzL/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917678,43.240611 ]
+    },
+    "properties": {
+    "Identification (int)":17,
+    "Address":"MukhtarAuezov_3r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1y_yv9ORh-y9WnoRdqZGMmcv01qdUKdSP/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.920576,43.240868 ]
+    },
+    "properties": {
+    "Identification (int)":18,
+    "Address":"Abay101_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1Hwgw5UzfHk6fUBeEX9K0yjHrV2rTIJmv/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917919,43.240578 ]
+    },
+    "properties": {
+    "Identification (int)":19,
+    "Address":"MukhtarAuezov_4r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1_JxjXJFY6uECvPdSTi0Ds3oqaHpZBiq6/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918521,43.240704 ]
+    },
+    "properties": {
+    "Identification (int)":20,
+    "Address":"MukhtarAuezov_5r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1MiaS-WygMNOt2b2WHXcrU0fI8EummEqV/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.920936,43.240962 ]
+    },
+    "properties": {
+    "Identification (int)":21,
+    "Address":"Abay101_2r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1bw9m27HMrsa3QOeqLaCy9g6LI6AcurLh/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.921501,43.241116 ]
+    },
+    "properties": {
+    "Identification (int)":22,
+    "Address":"Abay99_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1vxK0j-MgZRvfdu567DsbHHSVz7dRLdIf/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919249,43.240695 ]
+    },
+    "properties": {
+    "Identification (int)":23,
+    "Address":"MukhtarAuezov_6r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/13yR2rn56T0aSNeoQyuIlFUVqYSvvkqIH/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.921617,43.241107 ]
+    },
+    "properties": {
+    "Identification (int)":24,
+    "Address":"Abay99_r2",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1paDzP1yMU703z9agQgr7PLMC1AxvlgQz/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919693,43.242688 ]
+    },
+    "properties": {
+    "Identification (int)":25,
+    "Address":"MukhtarAuezov_7r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1Rgl0yUCOSJF8JTmJzCSykuEPq7sELldk/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.923386,43.241090 ]
+    },
+    "properties": {
+    "Identification (int)":26,
+    "Address":"Abay91_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1L3Z0QhS4raPkO2ROZv1YDJHqgkUj0H8Q/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.916936,43.242087 ]
+    },
+    "properties": {
+    "Identification (int)":27,
+    "Address":"MukhtarAuezov_8r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1JvrHF47cP4K0rUpKYqQQGbYfwht5dJ1b/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.924108,43.241140 ]
+    },
+    "properties": {
+    "Identification (int)":28,
+    "Address":"Sharipova126_1r",
+    "District/ Street":"Sharipova/Abay",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1iGLllJLcFygYFjU8xPf0AmNwlAX_3eMP/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.924097,43.241067 ]
+    },
+    "properties": {
+    "Identification (int)":29,
+    "Address":"Sharipova126_2r",
+    "District/ Street":"Sharipova/Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1IlQk0RKDHtSCjk17Hm_cfcvNPS5TwBQ8/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.916893,43.241697 ]
+    },
+    "properties": {
+    "Identification (int)":30,
+    "Address":"MukhtarAuezov_9r",
+    "District/ Street":"Kurmangazy",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1JvrHF47cP4K0rUpKYqQQGbYfwht5dJ1b/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917029,43.241452 ]
+    },
+    "properties": {
+    "Identification (int)":31,
+    "Address":"MukhtarAuezov_10r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1JvrHF47cP4K0rUpKYqQQGbYfwht5dJ1b/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917075,43.241132 ]
+    },
+    "properties": {
+    "Identification (int)":32,
+    "Address":"MukhtarAuezov_11r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1JvrHF47cP4K0rUpKYqQQGbYfwht5dJ1b/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.924321,43.241130 ]
+    },
+    "properties": {
+    "Identification (int)":33,
+    "Address":"Abay89_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/11zID_84QzEzIqlS60KegNM6fwGUPb4r4/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.924321,43.241130 ]
+    },
+    "properties": {
+    "Identification (int)":34,
+    "Address":"Abay89_1s",
+    "District/ Street":"Abay",
+    "Type":"stairs",
+    "Category":"black",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1VIUrEQBlHuFuucWnws6_r198KQRH72nR/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.916523,43.240490 ]
+    },
+    "properties": {
+    "Identification (int)":35,
+    "Address":"MukhtarAuezov_12r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1QhSLxvUIW1lRi0CVB5rChkaeo97KGm6r/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.916516,43.240682 ]
+    },
+    "properties": {
+    "Identification (int)":36,
+    "Address":"MukhtarAuezov_13r",
+    "District/ Street":"Mukanov",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/12F34chAcNFmTWPToEtfAdFX7yFh44nhG/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.925965,43.241289 ]
+    },
+    "properties": {
+    "Identification (int)":37,
+    "Address":"Abay85_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1vm_2fw4TKACzQNTkMrqhUEehwpIy1zzv/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.928089,43.241269 ]
+    },
+    "properties": {
+    "Identification (int)":38,
+    "Address":"Abay81_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1Y2ZBbm1nUxRCyuwfgnBYfBg-kYeThR17/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915280,43.240513 ]
+    },
+    "properties": {
+    "Identification (int)":39,
+    "Address":"AbayMukanov_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1lrYEv9rKuS4gL2YgUSwrPlUjTNxf46tj/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.934018,43.241682 ]
+    },
+    "properties": {
+    "Identification (int)":40,
+    "Address":"Abay65/3_1r",
+    "District/ Street":"Seifullina",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1Wb9hYiugWL7Oc4btdMpgRwnK5ok-OKtK/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914620,43.240971 ]
+    },
+    "properties": {
+    "Identification (int)":41,
+    "Address":"Abay105a_1r",
+    "District/ Street":"Baizakov",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1ptkcbFKJacUb3GP3x3Gi1sON_7wsDDIM/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914544,43.241014 ]
+    },
+    "properties": {
+    "Identification (int)":42,
+    "Address":"Abay105a_2r",
+    "District/ Street":"Baizakov",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1PXow917dv3Bd6LaiKVljm3Gte0xElOHd/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914616,43.241469 ]
+    },
+    "properties": {
+    "Identification (int)":43,
+    "Address":"Baizakova252_1r",
+    "District/ Street":"Baizakov",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1Q6iqbG-m8HG39pUcFK3zlkBKrbv1ntHr/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.936130,43.241879 ]
+    },
+    "properties": {
+    "Identification (int)":44,
+    "Address":"Abay63_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/13iqzLyk-Tmjp9VQXrQN34u4DSAMrDHe7/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.937733,43.241901 ]
+    },
+    "properties": {
+    "Identification (int)":45,
+    "Address":"Abay/Naurizbaibatyra_1r",
+    "District/ Street":"Naurizbai batyra ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1KQVJpAKfdHG5DDV6ff87drR0qTudPOc4/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.939966,43.242150 ]
+    },
+    "properties": {
+    "Identification (int)":46,
+    "Address":"Zheltoksan169_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1-LlSEzgqZOUB-87VVSAfz46c53ky8rXa/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.941041,43.242332 ]
+    },
+    "properties": {
+    "Identification (int)":47,
+    "Address":"Abay51_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1w6JZFsvvJLHM4jUIYHzoNDqw4uZDGMKz/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.943721,43.242523 ]
+    },
+    "properties": {
+    "Identification (int)":48,
+    "Address":"Baiseitovoy43_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1ippPRKjw5tQNw9vMH1iN0jGdK9o5jOA7/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.899102,43.242609 ]
+    },
+    "properties": {
+    "Identification (int)":49,
+    "Address":"Zharokov24/1_1r",
+    "District/ Street":"Zharokov",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1yvdFD6t8prtpHpgTGef-f6Sjo_Nz6v7K/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.945123,43.242558 ]
+    },
+    "properties": {
+    "Identification (int)":50,
+    "Address":"Abay39_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp ",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1z1Vz4iF57VfeTGhobmDgFUJ7-4OvKfrt/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.945579,43.242474 ]
+    },
+    "properties": {
+    "Identification (int)":51,
+    "Address":"Abay39_2r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1CcCmnDq2X-1VW2lTGZnEo_UUYdUEBzaq/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.899494,43.239784 ]
+    },
+    "properties": {
+    "Identification (int)":52,
+    "Address":"Abay125a_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1r1lVYIjO9-EpD9OwzIy2h6qRCQoJcFQU/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.900079,43.239522 ]
+    },
+    "properties": {
+    "Identification (int)":53,
+    "Address":"Abay125a_2r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/14VbN_G1kVlpK1aPHLD8njlZ8mik2pdBP/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  76.946740,43.242626 ]
+    },
+    "properties": {
+    "Identification (int)":54,
+    "Address":"Panfilova162_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":" green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1CkrZch4ENdeGElgZB_9imLSw00Oves-o/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.901631,43.239648 ]
+    },
+    "properties": {
+    "Identification (int)":55,
+    "Address":"Abay117_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1IxOjd0-rfx-Mf3Dz2OHPl0iPMdE9BfZa/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947998,43.242740 ]
+    },
+    "properties": {
+    "Identification (int)":56,
+    "Address":"Panfilova162_2r",
+    "District/ Street":"Nazarbaeva",
+    "Type":"ramp",
+    "Category":" green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1CkrZch4ENdeGElgZB_9imLSw00Oves-o/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.904606,43.239952 ]
+    },
+    "properties": {
+    "Identification (int)":57,
+    "Address":"Globus_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1aWuQuu8XhZnUTv6c1RycO7mekKt7Hy7b/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.908050,43.240238 ]
+    },
+    "properties": {
+    "Identification (int)":58,
+    "Address":"Abay109a_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1_7IpCwUABQZN75f_z1TAaDK5j5jVESie/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.912480,43.242454 ]
+    },
+    "properties": {
+    "Identification (int)":59,
+    "Address":"Abay107/5_1r",
+    "District/ Street":"Biocombinatskay",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1RyZ42taCVc5aicYqvaypQqhYqvHuKLkq/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915148,43.244097 ]
+    },
+    "properties": {
+    "Identification (int)":60,
+    "Address":"Mukanov241_1r",
+    "District/ Street":"Shefchenko",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1hqLRy3OBvBcBUNsTTcIt1v-WYkCWe77K/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915951,43.244067 ]
+    },
+    "properties": {
+    "Identification (int)":61,
+    "Address":"Mukanov241_2r",
+    "District/ Street":"Mukanov",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1lgcLBW6PI8nrEKqGn2mRtmkk1pGvfXNM/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917214,43.243294 ]
+    },
+    "properties": {
+    "Identification (int)":62,
+    "Address":"Kurmangazy145_6r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/04/2024",
+    "Photo":"https://drive.google.com/file/d/1cEo1QxGfThuw-5-Se-bnsxUQtEh_AxMu/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919751,43.241169 ]
+    },
+    "properties": {
+    "Identification (int)":63,
+    "Address":"Abay101a_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1bzUjdjN5Z1nKAXhlGihE8fFNvv9ySPqt/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.920297,43.241186 ]
+    },
+    "properties": {
+    "Identification (int)":64,
+    "Address":"Abay101a_2r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/13aoPWGB6mwZ_AyvsK3-DAaQCK_rcX7k7/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.920325,43.241743 ]
+    },
+    "properties": {
+    "Identification (int)":65,
+    "Address":"Muratbayev232_1r",
+    "District/ Street":"Muratbayev",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1BmutOtnKMfLyIdGF0JXsyRohWivdnpVF/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.921951,43.241776 ]
+    },
+    "properties": {
+    "Identification (int)":66,
+    "Address":"Shagabudtinov171_1r",
+    "District/ Street":"Shagabudtinov",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1H6FQHXwtRQXI4T3vKy9j9pIXWtBOB60V/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.921887,43.241115 ]
+    },
+    "properties": {
+    "Identification (int)":67,
+    "Address":"Abay99_3r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1VaTQpW33TSdaILybE14kLLYSQBuEHzv7/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.923898,43.241164 ]
+    },
+    "properties": {
+    "Identification (int)":68,
+    "Address":"Abay89_2r",
+    "District/ Street":"Adi Sharipov",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/17HnEW9jOCtn_cChccFj1nFADBfj_vFWq/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.923870,43.241775 ]
+    },
+    "properties": {
+    "Identification (int)":69,
+    "Address":"AdiSharipov124_1r",
+    "District/ Street":"Adi Sharipov",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1CGUb5OaGJ4-lwWDS3iDbR0x59jzWvGlY/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.923702,43.242808 ]
+    },
+    "properties": {
+    "Identification (int)":70,
+    "Address":"AdiSharipov118_1r",
+    "District/ Street":"Adi Sharipov",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Zm-KzVhQHkd-x6b3EiGY7q50kydgIYj0/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.923755,43.243021 ]
+    },
+    "properties": {
+    "Identification (int)":71,
+    "Address":"AdiSharipov118_2r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1RXQa4zbfIXQ5P1cjR8BBTILxKhVNhyn0/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.924463,43.243085 ]
+    },
+    "properties": {
+    "Identification (int)":72,
+    "Address":"AdiSharipov118_3r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1DTPZ1DBSZG3jixPHCustjsqjrAh-ckAc/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.925355,43.242310 ]
+    },
+    "properties": {
+    "Identification (int)":73,
+    "Address":"Dosmukhamedov117_1r",
+    "District/ Street":"Dosmukhamedov",
+    "Type":"ramp",
+    "Category":"yellow ",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1im2Tj6OwxgPM8hTRjrZ4havy36Ft39jj/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.925325,43.241727 ]
+    },
+    "properties": {
+    "Identification (int)":74,
+    "Address":"Dosmukhamedov117_2r",
+    "District/ Street":"Dosmukhamedov",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1aK6M6NwmMw4BFJ891D4ByNV_8BGC7Gdu/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.926717,43.241182 ]
+    },
+    "properties": {
+    "Identification (int)":75,
+    "Address":"Abay85_2r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1HmRGRCKjj8UFyOFx9t21B3AxmzMNIDDf/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.926421,43.241164 ]
+    },
+    "properties": {
+    "Identification (int)":76,
+    "Address":"Abay85_3r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1_wO3qq5eIZQpkT0spxicz4xjsJHXfJsP/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.927253,43.243091 ]
+    },
+    "properties": {
+    "Identification (int)":77,
+    "Address":"Baitursynov78_1r",
+    "District/ Street":"Baitursynov",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1XGOlfjc5sQXjojwXxGwo7xvM8JCb5MhI/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.930536,43.242984 ]
+    },
+    "properties": {
+    "Identification (int)":78,
+    "Address":"Masanchi75_1r",
+    "District/ Street":"Masanchi",
+    "Type":"ramp",
+    "Category":"red ",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1UGNMyQAMpRnoCzclBUPnJIlhB92meuAe/view?usp=drivesdk",
+    "Commentary":"От Абая- yellow, к Абая- red, сложно в горку здесь заехать"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.930487,43.245194 ]
+    },
+    "properties": {
+    "Identification (int)":79,
+    "Address":"Masanchi86_1r",
+    "District/ Street":"Masanchi",
+    "Type":"ramp",
+    "Category":"green ",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Bu4UtVI_CYO7_l3EbfzOXVVzu03Rnpal/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.933617,43.245243 ]
+    },
+    "properties": {
+    "Identification (int)":80,
+    "Address":"Shevchenko100_1r",
+    "District/ Street":"Seifullin",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/11mA7jADj1Gj0f9dMzKO2j5BEOzE7YD7i/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.934266,43.243555 ]
+    },
+    "properties": {
+    "Identification (int)":81,
+    "Address":"Seifullin534_1r",
+    "District/ Street":"Seifullin",
+    "Type":"ramp",
+    "Category":"black ",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1QJu3BcWmI8ZqRvTnSs2zZRQ4kvzLJlJo/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.934442,43.243427 ]
+    },
+    "properties": {
+    "Identification (int)":82,
+    "Address":"Seifullin534_2r",
+    "District/ Street":"Seifullin",
+    "Type":"ramp",
+    "Category":"black ",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1jqT9LzQ_TlOWe5GsJE5CTRrkCDW1Ig0i/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.934466,43.242935 ]
+    },
+    "properties": {
+    "Identification (int)":83,
+    "Address":"Seifullin534_3r",
+    "District/ Street":"Seifullin",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1LDRr9qgXcan_IiFhZff4FWIea1Grf0GR/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.934376,43.242899 ]
+    },
+    "properties": {
+    "Identification (int)":84,
+    "Address":"Seifullin534_4r",
+    "District/ Street":"Seifullin",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Gz9IxyVueHJ-QqrnII3J_d0tx5Rhep85/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.934476,43.242836 ]
+    },
+    "properties": {
+    "Identification (int)":85,
+    "Address":"Seifullin534_5r",
+    "District/ Street":"Seifullin ",
+    "Type":"ramp",
+    "Category":"black ",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1j5aVojUV5XHAmV1paG4mXj8kFE4bXgok/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.934435,43.242758 ]
+    },
+    "properties": {
+    "Identification (int)":86,
+    "Address":"Seifullin534_6r",
+    "District/ Street":"Seifullin",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1On4_1vg7vXXzy9cB3CUlkqTvOFf-TtP0/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.934315,43.242595 ]
+    },
+    "properties": {
+    "Identification (int)":87,
+    "Address":"Seifullin534_7r",
+    "District/ Street":"Seifullin",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"05/05/2024",
+    "Photo":"https://drive.google.com/file/d/1ovfg1lVrxbbNZZFMqzAmos1hOX0F7V_s/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918421,43.241379 ]
+    },
+    "properties": {
+    "Identification (int)":88,
+    "Address":"MukhtarAuezov_14r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/13qNm_50Dv9pdgLDpROBo7iMu0NVeLDxc/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.921702,43.243063 ]
+    },
+    "properties": {
+    "Identification (int)":89,
+    "Address":"Muratbayev200_1r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1yhr9FSIHfy8lxhxf2-kVbhEDlCQPuWC_/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.922645,43.243061 ]
+    },
+    "properties": {
+    "Identification (int)":90,
+    "Address":"AdiSharipov145_1r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1oyW3iiMYH6O-MHOLj8BowtWFbs99vI8O/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.923035,43.243177 ]
+    },
+    "properties": {
+    "Identification (int)":91,
+    "Address":"AdiSharipov145_2r",
+    "District/ Street":"Kurmangazy",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1wP2n69QIMOhQeSYayVGleL0-pICegHQI/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.923300,43.243196 ]
+    },
+    "properties": {
+    "Identification (int)":92,
+    "Address":"AdiSharipov145_3r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1lMJd3YRkA7kiLn2TAmeIB54rvIrMQVZ6/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.926033,43.243291 ]
+    },
+    "properties": {
+    "Identification (int)":93,
+    "Address":"Kurmangazy113_1r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1dWqG2H645mwgkM1kFUdspNnlme56tbGO/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.930617,43.244517 ]
+    },
+    "properties": {
+    "Identification (int)":94,
+    "Address":"Masanchi86a_1r",
+    "District/ Street":"Masanchi",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1aKpt_800UfgTehgKSSn85PDrMgc7biI8/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.930350,43.246231 ]
+    },
+    "properties": {
+    "Identification (int)":95,
+    "Address":"Masanchi78_1r",
+    "District/ Street":"Masanchi",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1idJAbOk4VtCxXyKXMQzYRiTuA4nXKNua/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.930249,43.246615 ]
+    },
+    "properties": {
+    "Identification (int)":96,
+    "Address":"Masanchi76_1r",
+    "District/ Street":"Masanchi",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1lTtIm93slXhoXA7u9WJgYCjKFL2vnmfV/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.926742,43.246617 ]
+    },
+    "properties": {
+    "Identification (int)":97,
+    "Address":"Baitursynov58_1r",
+    "District/ Street":"Baytursinov",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1I-Mf6lt8uG6FF2PJkPLXG3hvqsLPCPvS/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.926772,43.246651 ]
+    },
+    "properties": {
+    "Identification (int)":98,
+    "Address":"Baitursynov58_2r",
+    "District/ Street":"Zhambyla",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1g48gBHfyce9wXxDsmf2zFj9Ewx1PWlgD/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.926770,43.246484 ]
+    },
+    "properties": {
+    "Identification (int)":99,
+    "Address":"Baitursynov58_3r",
+    "District/ Street":"Baytursynov",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Xz_qeEq-mxxbatVTqTmEADm068dVpjLA/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.926490,43.246591 ]
+    },
+    "properties": {
+    "Identification (int)":100,
+    "Address":"Zhambyl114/85_1r",
+    "District/ Street":"Baitursynov ",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1XiJrmpF5Q5ZwZmW7UGeJWbArnOzt8j3H/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.926439,43.246623 ]
+    },
+    "properties": {
+    "Identification (int)":101,
+    "Address":"Zhambyl114/85_2r",
+    "District/ Street":"Zhambyl ",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1MhAqrzPNyKkExmKrguK4Ajy60eV-m7rw/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.924924,43.247185 ]
+    },
+    "properties": {
+    "Identification (int)":102,
+    "Address":"Dosmukhamedov78_1r",
+    "District/ Street":"Dosmukhamedov ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/13rAtN_7yEJdFsHm7nc3zgXfG_MBxWGvq/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.924639,43.247717 ]
+    },
+    "properties": {
+    "Identification (int)":103,
+    "Address":"Dosmukhamedov89_1r",
+    "District/ Street":"Dosmukhamedov ",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1I7mNmhqXXDgJIBjv5m85oDdV6BCwNa0p/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.924595,43.248169 ]
+    },
+    "properties": {
+    "Identification (int)":104,
+    "Address":"Dosmukhamedov87_1r",
+    "District/ Street":"Kabanbay Batyr",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1M3RT6euX-FR_HPo__BYhr1I9nhjwbsLs/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.920646,43.247908 ]
+    },
+    "properties": {
+    "Identification (int)":105,
+    "Address":"KabanbaiBatyr172_1r",
+    "District/ Street":"Kabanbay Batyr",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Dw0CNy7a38IPNYUOOxamKaQwN12xPFsP/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.920332,43.247922 ]
+    },
+    "properties": {
+    "Identification (int)":106,
+    "Address":"KabanbaiBatyr172_2r",
+    "District/ Street":"Kabanbay Batyr",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1gf69Krk03JxRN0dNQ1arIzidwc8oU30u/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919945,43.247936 ]
+    },
+    "properties": {
+    "Identification (int)":107,
+    "Address":"KabanbaiBatyr174a_1r",
+    "District/ Street":"Kabanbay Batyr",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1JC6KQgNXCBq_xHXNZ2Hdq1dN-eM3kUaw/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917443,43.247804 ]
+    },
+    "properties": {
+    "Identification (int)":108,
+    "Address":"KabanbaiBatyr147_1r",
+    "District/ Street":"Kabanbay Batyr",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1W3ae8xrvznfA1zzx_KdpK8VwbprZ-tmA/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919126,43.244418 ]
+    },
+    "properties": {
+    "Identification (int)":109,
+    "Address":"Shefchenko146_1r",
+    "District/ Street":"Shefchenko",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"12/05/2024",
+    "Photo":"https://drive.google.com/file/d/1iCcHqM_AjeeYeoMyW11muMaZbNmCRhsj/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919841,43.243423 ]
+    },
+    "properties": {
+    "Identification (int)":110,
+    "Address":"Muratbayev200_1r",
+    "District/ Street":"Kurmangazy ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1zQ3jI1KRX2vzP3X-n4bcPgF9l69xYWzg/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919513,43.244358 ]
+    },
+    "properties": {
+    "Identification (int)":111,
+    "Address":"Shefchenko144_1r",
+    "District/ Street":"Shefchenko",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1SltPwv7ffE_sN6jUOOuY6eioXT0C7rDt/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919593,43.246919 ]
+    },
+    "properties": {
+    "Identification (int)":112,
+    "Address":"Muratbayev182_1r ",
+    "District/ Street":"Muratbayev",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/19kdEZGnlfVhA_IDkC12N1tvT0cnAPpp4/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918910,43.252882 ]
+    },
+    "properties": {
+    "Identification (int)":113,
+    "Address":"Muratbayev132_1r",
+    "District/ Street":"Muratbayev",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1ebVktTYo8iF4D4K-Sq9G0GP0qGqF6xLZ/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919016,43.253186 ]
+    },
+    "properties": {
+    "Identification (int)":114,
+    "Address":"ToleBi125_1r",
+    "District/ Street":"Muratbayev",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1ejDCl-g6PUGnhnCm9ewEDpsYbE5dNn3b/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918689,43.253659 ]
+    },
+    "properties": {
+    "Identification (int)":115,
+    "Address":"Muratbayev114/120_1r",
+    "District/ Street":"Muratbayev",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1emBJtmvht6Jcwgt9bas7-pSFFQpK_jZa/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918682,43.254423 ]
+    },
+    "properties": {
+    "Identification (int)":116,
+    "Address":"KazybekBi124_1r",
+    "District/ Street":"Muratbayev",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1eskVF5AopaQhzyvxxHDTTYGlhGg90t-f/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918341,43.256341 ]
+    },
+    "properties": {
+    "Identification (int)":117,
+    "Address":"AitekeBi150_1r",
+    "District/ Street":"Muratbayev",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1eyWorpiz2EGIRA3Llvn3YgXvsw3IBJ4g/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918362,43.256906 ]
+    },
+    "properties": {
+    "Identification (int)":118,
+    "Address":"Muratbayev94_1r",
+    "District/ Street":"Muratbayev ",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1ez872kMJgj8WReWBGGCcwaOOPvFEuSZt/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918083,43.260110 ]
+    },
+    "properties": {
+    "Identification (int)":119,
+    "Address":"ZhibekZholy188_1r",
+    "District/ Street":"Zhibek Zholy",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1ezvzRI4Y8q_0pd-eZTCr4-aXrZ10XDzz/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917740,43.260104 ]
+    },
+    "properties": {
+    "Identification (int)":120,
+    "Address":"Muratbaev89_1r ",
+    "District/ Street":"Muratbayev",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1f3EMrY7qar8KFdVqVlX4VD3Zg-LHIwj3/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.932356,43.263009 ]
+    },
+    "properties": {
+    "Identification (int)":121,
+    "Address":"Seifulin420_1r",
+    "District/ Street":"Makatayev   ",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1f3Z_PZc5iCcsZK8tUzxsRRKJ6YYG4e7P/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.934023,43.263103 ]
+    },
+    "properties": {
+    "Identification (int)":122,
+    "Address":"Makatayev128_1r",
+    "District/ Street":"Makatayev",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1fEIASNqhthHwPrFMXymCFlOxqWQRJQC2/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.941234,43.257954 ]
+    },
+    "properties": {
+    "Identification (int)":123,
+    "Address":"Abylaikhan74a_1r",
+    "District/ Street":"Aiteke bi",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1qbcTQNRa3g15NAuWVQBje1mK1zSeMxXt/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.941341,43.258504 ]
+    },
+    "properties": {
+    "Identification (int)":124,
+    "Address":"Abylaikhan74a_2r",
+    "District/ Street":"Aiteke bi",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1ytFl3_ryT31gHGpe7CF8zC4tWCkobNYD/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.941200,43.258155 ]
+    },
+    "properties": {
+    "Identification (int)":125,
+    "Address":"Abylaikhan74a_3r",
+    "District/ Street":"Aiteke bi",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1semMnCCHIYRxDDYKQnWZTIx06TmbvmTe/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.940578,43.258119 ]
+    },
+    "properties": {
+    "Identification (int)":126,
+    "Address":"Abylaikhan79_1r",
+    "District/ Street":"Aiteke bi",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Egwgs1j9Amkxpb02s7RyjGt5jasZfDZ5/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947968,43.242704 ]
+    },
+    "properties": {
+    "Identification (int)":127,
+    "Address":"Abay35/37_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1co613FiF3jcTyf9Kx4Zn9_2U0HFdsaXD/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947603,43.242831 ]
+    },
+    "properties": {
+    "Identification (int)":128,
+    "Address":"Abay35/37_2r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1QuqR_ZdL7o4YqulO8CIxonREFDmCrtEF/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.948017,43.243004 ]
+    },
+    "properties": {
+    "Identification (int)":129,
+    "Address":"Nazarbayeva181_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/17Lfrf_SIMWF70QUFd4jWjaAqu0JTiBsj/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947420,43.243207 ]
+    },
+    "properties": {
+    "Identification (int)":130,
+    "Address":"Nazarbayeva179_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1chazkgav_4IV9NV10q_KM6iQyDS0fjee/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947952,43.243576 ]
+    },
+    "properties": {
+    "Identification (int)":131,
+    "Address":"Nazarbayeva177_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"black ",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1SSQc811XxXYJtPYbgzjRiUJ1FABEj8Ve/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947751,43.244001 ]
+    },
+    "properties": {
+    "Identification (int)":132,
+    "Address":"Nazarbayeva175_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1OidyTV90n12HMw6_aSawkQJMSfzrsWhd/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947810,43.244235 ]
+    },
+    "properties": {
+    "Identification (int)":133,
+    "Address":"Nazarbayeva173_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1j9iqR2O7t8sH6c06aOM3YEMftC3GGMs-/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947675,43.244937 ]
+    },
+    "properties": {
+    "Identification (int)":134,
+    "Address":"Kurmangazy43_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1BVlagxophuvXFuYC02I7QAPmDviql5Sn/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947251,43.244841 ]
+    },
+    "properties": {
+    "Identification (int)":135,
+    "Address":"Kurmangazy43_2r",
+    "District/ Street":"Kurmangazy",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1KX2A2wVJWSUQQVX41fb8qXN4zM_Z8SNd/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947223,43.244861 ]
+    },
+    "properties": {
+    "Identification (int)":136,
+    "Address":"Kurmangazy43_3r",
+    "District/ Street":"Kurmangazy",
+    "Type":"ramp",
+    "Category":"red (the worst) ",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1x3HMTnmxRyvSZlG9Eo-7pFr7SopN7HVS/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947688,43.245125 ]
+    },
+    "properties": {
+    "Identification (int)":137,
+    "Address":"Nazarbayeva165_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/19euYDYafZeqF1fzakKl8I7EQZ5_LWaGc/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947595,43.245081 ]
+    },
+    "properties": {
+    "Identification (int)":138,
+    "Address":"Nazarbayeva165_2r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1NG0BpW6hA6aV6yrrHzfslpcquct56x6u/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947409,43.245369 ]
+    },
+    "properties": {
+    "Identification (int)":139,
+    "Address":"Nazarbayeva165_3r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1CqLVFAoJu5Ct3fY-EcrIX86m7X06hhXQ/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947761,43.245330 ]
+    },
+    "properties": {
+    "Identification (int)":140,
+    "Address":"Nazarbayeva165_4r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Xbl6gDt-ifGdqvVWrnIh114QvrOEPinm/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947620,43.246132 ]
+    },
+    "properties": {
+    "Identification (int)":141,
+    "Address":"Nazarbayeva163_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1yojDbcictgl20F2Vtvc29RHTr0n7fD-f/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.948272,43.246435 ]
+    },
+    "properties": {
+    "Identification (int)":142,
+    "Address":"Shevchenko44a_1r",
+    "District/ Street":"Shevchenko",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1b5Hnqg_U2ir8Ek1_UPbQgBS5jN7_Gl34/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946962,43.247818 ]
+    },
+    "properties": {
+    "Identification (int)":143,
+    "Address":"Nazarbayeva149_1r",
+    "District/ Street":"Zhambyla",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1ByQsw7YvDSAZUQz4UrfGh699GnJdc9pv/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946742,43.248106 ]
+    },
+    "properties": {
+    "Identification (int)":144,
+    "Address":"Zhambyla48_1r",
+    "District/ Street":"Zhambyla",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1rWkA0mDYXdtKPLELAu3fuSGoW-p86zXO/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946635,43.248107 ]
+    },
+    "properties": {
+    "Identification (int)":145,
+    "Address":"Zhambyla48_2r",
+    "District/ Street":"Zhambyla",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1S7IMl4iqkHIzR_eha9_2iThI_5pQWJIl/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947041,43.248093 ]
+    },
+    "properties": {
+    "Identification (int)":146,
+    "Address":"Zhambyla48_3r",
+    "District/ Street":"Zhambyla",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1HKi-TXj7zibc7UVgaJmFj-EB9My-RUDf/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947483,43.247924 ]
+    },
+    "properties": {
+    "Identification (int)":147,
+    "Address":"Nazarbayeva149_2r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1VeOcHEnxVaAJyEpTQBXfeRNRpNj4H41Z/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946404,43.248230 ]
+    },
+    "properties": {
+    "Identification (int)":148,
+    "Address":"Panfilova126_1r",
+    "District/ Street":"Zhambyla",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1cqFwclCSbn1sZ8eA-NQJxRcgJGAVr8_s/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946195,43.249589 ]
+    },
+    "properties": {
+    "Identification (int)":149,
+    "Address":"Kabanbaibatyr110_1r",
+    "District/ Street":"Kabanbai batyr",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1zFydAuIVnDskmb4idyNpIeNlGZAC_MYP/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947025,43.249691 ]
+    },
+    "properties": {
+    "Identification (int)":150,
+    "Address":"Kabanbaibatyr104_1r",
+    "District/ Street":"Kabanbai batyr",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1q7J-T9VK8HTR0R3WIJl25rhTYdvhciAU/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.947267,43.249720 ]
+    },
+    "properties": {
+    "Identification (int)":151,
+    "Address":"Kabanbaibatyr104_2r",
+    "District/ Street":"Kabanbai batyr",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1VgqxBbIzU2I9U2cChw9t9GiST_sjc3K0/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946902,43.251213 ]
+    },
+    "properties": {
+    "Identification (int)":152,
+    "Address":"Nazarbayeva135_1r",
+    "District/ Street":"Nazarbayeva ",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1lls8jboABU7hQjl87uTvuvBIVkujSWJq/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946609,43.252290 ]
+    },
+    "properties": {
+    "Identification (int)":153,
+    "Address":"Nazarbayeva127_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1euBi6OaJ-5UQ2eZjIPvVkXHoGGt8fTbw/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946159,43.253262 ]
+    },
+    "properties": {
+    "Identification (int)":154,
+    "Address":"Bogenbaibatyra121_1r",
+    "District/ Street":"Bogenbaibatyra",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1kuMiv6XBUK5kRhG5snfO0zR6yplAG1DR/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946208,43.254545 ]
+    },
+    "properties": {
+    "Identification (int)":155,
+    "Address":"Nazarbayeva117_1r",
+    "District/ Street":"Nazarbayeva ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1yCiJWuNiPP35ph9iUOesgcbVWP83p26B/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946354,43.256203 ]
+    },
+    "properties": {
+    "Identification (int)":156,
+    "Address":"Nazarbayeva111_1r",
+    "District/ Street":"Nazarbayeva ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1zulXcJYjV4b6NGXIsCtUGHiq2gIOtU8u/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946072,43.256779 ]
+    },
+    "properties": {
+    "Identification (int)":157,
+    "Address":"Kazybekbi65_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/12VlFqk9N-dOrI1ttBZJ7R79wPVLz_6J7/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946067,43.257839 ]
+    },
+    "properties": {
+    "Identification (int)":158,
+    "Address":"Nazarbayeva103_1r",
+    "District/ Street":"Nazarbayeva ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/10cwLc27SUhZEjSKJmxmMe1DXQAmFmjRX/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.946114,43.258357 ]
+    },
+    "properties": {
+    "Identification (int)":159,
+    "Address":"Nazarbayeva99_1r",
+    "District/ Street":"Nazarbayeva ",
+    "Type":"ramp",
+    "Category":" green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Tz8qYPErUm_Qge-oCm5Zr8kcmM9A2x7p/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.945957,43.259105 ]
+    },
+    "properties": {
+    "Identification (int)":160,
+    "Address":"Nazarbayeva91/97_1r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/18fLGtlazMtB3BPfjY2y61LQBenrfN0DC/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.945876,43.259763 ]
+    },
+    "properties": {
+    "Identification (int)":161,
+    "Address":"Nazarbayeva91/97_2r",
+    "District/ Street":"Nazarbayeva",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1rsUAJwso8DPWcZ700z9p2jhH2orkpYuS/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.944852,43.259824 ]
+    },
+    "properties": {
+    "Identification (int)":162,
+    "Address":"Gogol54_1r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":" green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1jvG-4-9AKyHBtuOJspn1KmiGDR8BfK3x/view?usp=drivesdk  ",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.944602,43.259798 ]
+    },
+    "properties": {
+    "Identification (int)":163,
+    "Address":"Gogol54_2r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1sqAO4ZW1PT8xQPzFmiXG22ddB9sQ54zz/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.942705,43.259663 ]
+    },
+    "properties": {
+    "Identification (int)":164,
+    "Address":"Abylaikhan74_1r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1UZvbgZ9Ofu_Bfa-10NI8LpIjoEI9UrXN/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.942301,43.259646 ]
+    },
+    "properties": {
+    "Identification (int)":165,
+    "Address":"Abylaikhan74_2r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1F1w4SQbcQh7lLcwGuA5Y5WygYG1Du2Tr/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.941825,43.259615 ]
+    },
+    "properties": {
+    "Identification (int)":166,
+    "Address":"Abylaikhan74_3r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1RE0IbZUuT6AOO-R8QBYAg_v7ZfMiOrLG/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.941569,43.259571 ]
+    },
+    "properties": {
+    "Identification (int)":167,
+    "Address":"Abylaikhan74_4r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/14F1_DQLKrYIOSp9Exq6Yqt0owMQMxN0x/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.941161,43.259538 ]
+    },
+    "properties": {
+    "Identification (int)":168,
+    "Address":"Abylaikhan74_5r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1npsY3v9f2fHZwpNf9MeA-mDm2eA--VBy/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.941044,43.259419 ]
+    },
+    "properties": {
+    "Identification (int)":169,
+    "Address":"Gogol74/1_1r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1OJoG3KTMHzw0QaFKiPjJUj2I34lagh-9/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.941033,43.259433 ]
+    },
+    "properties": {
+    "Identification (int)":170,
+    "Address":"Gogol74/1_2r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1IauOVfQ6zDt6vQfvrfQNskl91xfRuc-v/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.940630,43.259548 ]
+    },
+    "properties": {
+    "Identification (int)":171,
+    "Address":"Gogol74/1_3r ",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1TJfobPq8t8P0WtSgslSfwcPYIMXywD11/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.940649,43.259403 ]
+    },
+    "properties": {
+    "Identification (int)":174,
+    "Address":"Gogol72_1r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/11u1Mgs3Dea4ylVuJd5Mz3aA1R6eGD5T2/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.940657,43.259480 ]
+    },
+    "properties": {
+    "Identification (int)":173,
+    "Address":"Gogol72_2r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Ix3oh8X61Wm5PxciP-XJvhkctY-TjU5a/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.940568,43.259807 ]
+    },
+    "properties": {
+    "Identification (int)":175,
+    "Address":"Gogol99_1r",
+    "District/ Street":"Gogol",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1oMY8vnpB6WLj_8Tl57Fzm7NpI0CtEhEV/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.940192,43.258715 ]
+    },
+    "properties": {
+    "Identification (int)":176,
+    "Address":"Abylaikhan77_1r",
+    "District/ Street":"Abylaikhan",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1SpEfHNwmq5VOUMsDpkD9mUQhCzSGG_c7/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.942101,43.258138 ]
+    },
+    "properties": {
+    "Identification (int)":177,
+    "Address":"Aitekebi67_1r",
+    "District/ Street":"Aiteke bi",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1MYUXUYaCk_z4kaPPfp0Htff-lMC4rt10/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.942715,43.258406 ]
+    },
+    "properties": {
+    "Identification (int)":178,
+    "Address":"Aitekebi67_2r",
+    "District/ Street":"Aiteke bi",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1loRarx917cDvHfaIVG4MEZ3dEXv_TAON/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.943615,43.258541 ]
+    },
+    "properties": {
+    "Identification (int)":179,
+    "Address":"Aitekebi65_1r",
+    "District/ Street":"Panfilova",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/1eV7K-FRi3sYg0PDwUa7KAaq_e-OGY7B1/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.943934,43.258936 ]
+    },
+    "properties": {
+    "Identification (int)":180,
+    "Address":"Aitekebi65_2r",
+    "District/ Street":"Panfilova",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"19/05/2024",
+    "Photo":"https://drive.google.com/file/d/13OBAsdJs2Qx28gRfpdRTEwXMpVMRRi8P/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.9158790,43.2425140 ]
+    },
+    "properties": {
+    "Identification (int)":181,
+    "Address":"Mukanova245_1r",
+    "District/ Street":"Mukanova ",
+    "Type":"ramp ",
+    "Category":"black ",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1oQJN5d433pV99-vkWOMpQojRRwrcDU61/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.916171,43.244647 ]
+    },
+    "properties": {
+    "Identification (int)":182,
+    "Address":"Mukanova226_1r",
+    "District/ Street":"Mukanova ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1XTtMSsjrDs6hqoWSKgoRPtuaJU6QVujQ/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.916082,43.245037 ]
+    },
+    "properties": {
+    "Identification (int)":183,
+    "Address":"Mukanova218_1r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1eOUbFUATupxXXqaU-DNxiSCF4RDs8zjg/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915970,43.245604 ]
+    },
+    "properties": {
+    "Identification (int)":184,
+    "Address":"Mukanova212_1r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":" red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1oQ5mnynVB1XRrbAyrR-HDNxDTTFw3ipl/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915533,43.247277 ]
+    },
+    "properties": {
+    "Identification (int)":185,
+    "Address":"Mukanova235_1r",
+    "District/ Street":"Mukanova ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1oWdWqSpAC0mOVfT3h80753qsl1eUI4cA/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915391,43.247556 ]
+    },
+    "properties": {
+    "Identification (int)":186,
+    "Address":"Mukanova235_2r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"yellow ",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1usSA8vh-OGADFkJMjBOzCyvPfDJN5lpQ/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915318,43.248071 ]
+    },
+    "properties": {
+    "Identification (int)":187,
+    "Address":"Mukanova233_1r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1fidpoG4JfJxWumVNlGKgSX4XPD4tYEMs/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914864,43.248185 ]
+    },
+    "properties": {
+    "Identification (int)":188,
+    "Address":"Mukanova233_2r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Jua3idlGlzt2GX33Xu7A56H5fBJEuXWu/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914761,43.249180 ]
+    },
+    "properties": {
+    "Identification (int)":189,
+    "Address":"KarasayBatyra126_1r",
+    "District/ Street":"Karasay Batyra ",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1mTHjvrtqdEblIf8dF-7IB5jlHqiWB8I4/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.9158790,43.2425140 ]
+    },
+    "properties": {
+    "Identification (int)":190,
+    "Address":"Mukanova245_2r",
+    "District/ Street":"Mukanova ",
+    "Type":"ramp",
+    "Category":"green ",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1CFP_3EvnAFHQwWiLygA0NoUAjBDkzuWH/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914980,43.240962 ]
+    },
+    "properties": {
+    "Identification (int)":191,
+    "Address":"Baizakova280_1r",
+    "District/ Street":"Baizakova ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Fj5-AxX37jw3jx5izPb-QPYyCvzt6z1D/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914614,43.240857 ]
+    },
+    "properties": {
+    "Identification (int)":192,
+    "Address":"Baizakova281/105_1r",
+    "District/ Street":"Baizakova ",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1HT_HCAvQgItOsP3tnVzQpE5mCwgKfnH4/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915179,43.249189 ]
+    },
+    "properties": {
+    "Identification (int)":193,
+    "Address":"Mukanova233_3r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Oc-fLjMSjuBZHenE0fmOT0lcaCVwSs9R/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915137,43.249799 ]
+    },
+    "properties": {
+    "Identification (int)":194,
+    "Address":"Mukanova227_1r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Oc8pyCcJSME77oNcFsNkb7-l-4xImtwE/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915085,43.249992 ]
+    },
+    "properties": {
+    "Identification (int)":195,
+    "Address":"Mukanova227_2r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1RWjC619ziR-cz7GqPfY2NPxI-wjpy517/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915052,43.250402 ]
+    },
+    "properties": {
+    "Identification (int)":196,
+    "Address":"Mukanova227_3r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1_BbNpueVpifycPLP0UIyI61c6CrB8cSb/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914919,43.250794 ]
+    },
+    "properties": {
+    "Identification (int)":197,
+    "Address":"Mukanova227_4r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1i-YNdLY7vJn46zT3eo50k9-in-UTBOdK/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914677,43.250007 ]
+    },
+    "properties": {
+    "Identification (int)":198,
+    "Address":"Mukanova227_5r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1L4nTp0Wb0e-Q6rujevMiQRbmDCcHWn-2/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915057,43.251134 ]
+    },
+    "properties": {
+    "Identification (int)":199,
+    "Address":"Mukanova223b_1r",
+    "District/ Street":"Mukanova ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1H2fYXome2NFqbqwH-M0g-DHwxcdjIUvd/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914503,43.240563 ]
+    },
+    "properties": {
+    "Identification (int)":200,
+    "Address":"Baizakova281_1r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1dXGAKqHOcDtgha81eZtqYsX2hLJ9hngw/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914086,43.240528 ]
+    },
+    "properties": {
+    "Identification (int)":201,
+    "Address":"Abay105B_1r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1j17hAf7dx9kH6csNvH_PO45-pkwYq9gD/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.913715,43.240536 ]
+    },
+    "properties": {
+    "Identification (int)":202,
+    "Address":"Abay107_1r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Q4F5Ls6o8n5Npa354E8Fr6ftUS-uqLeB/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.913507,43.240566 ]
+    },
+    "properties": {
+    "Identification (int)":203,
+    "Address":"Abay107_2r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1vmmq87RJsx0q9OqgLdw-iUp_x4ZOGPo4/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.913308,43.240527 ]
+    },
+    "properties": {
+    "Identification (int)":204,
+    "Address":"Abay107_3r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Uq7hiK_FaxLskjClDv3KK70y9GK2nfj_/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [  76.912887,43.240522 ]
+    },
+    "properties": {
+    "Identification (int)":205,
+    "Address":"Abay107a_1r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1xTztJ16lS-tJdZc9qRGSTkkTr2Dd51lt/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.910341,43.240353 ]
+    },
+    "properties": {
+    "Identification (int)":206,
+    "Address":"Abay109/6_1r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1dx4DfetQERZt1yKOuFH9mI58Gu5-nA7d/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.902865,43.239807 ]
+    },
+    "properties": {
+    "Identification (int)":207,
+    "Address":"Abay115_1r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"black ",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1nHI5jHVrKEjShBts3_ShfZXBCzxYr2a7/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.902612,43.239739 ]
+    },
+    "properties": {
+    "Identification (int)":208,
+    "Address":"Abay115_2r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"black ",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1nVlgnpW37rlweIQynY35jQXrmSbMY85A/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.902442,43.239713 ]
+    },
+    "properties": {
+    "Identification (int)":209,
+    "Address":"Abay115_3r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1kAqu3c0xsoNMbeTfO0qComBesyGkxv6K/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.902234,43.239689 ]
+    },
+    "properties": {
+    "Identification (int)":210,
+    "Address":"Abay115_4r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"black ",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/19074Oh1Ql0aVDLGXntfcT1GM2seksOfN/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.902147,43.239783 ]
+    },
+    "properties": {
+    "Identification (int)":211,
+    "Address":"Abay115_5r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1-ACrK_GhuoomF242iOHX7KITbpRuBEkZ/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.901573,43.239740 ]
+    },
+    "properties": {
+    "Identification (int)":212,
+    "Address":"Abay117_1r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1niJZwuL3yc3f1DFODZCD6MZEK0nDCqD5/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.900051,43.239578 ]
+    },
+    "properties": {
+    "Identification (int)":213,
+    "Address":"Abay125a_1r",
+    "District/ Street":"Abay ",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Gg-w7S_Q06qX3k8Z_DTqMlL5SsnSqvSI/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914320,43.261016 ]
+    },
+    "properties": {
+    "Identification (int)":214,
+    "Address":"Mukanova56_1r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":" red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1W75OLDqL7jRAsK5y0WkCPR85DIf9Mumx/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914894,43.251725 ]
+    },
+    "properties": {
+    "Identification (int)":215,
+    "Address":"Mukanova223a_1r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1lz21mXQX_XjKAHscLCdSK87OCC-DPHPC/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.913375,43.252539 ]
+    },
+    "properties": {
+    "Identification (int)":216,
+    "Address":"ToleBi130b_1r",
+    "District/ Street":"Tole Bi",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1UwWF9YFOWH6doqcR_vn57-hw0h5lGZFk/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914780,43.252847 ]
+    },
+    "properties": {
+    "Identification (int)":217,
+    "Address":"ToleBi143a_1r",
+    "District/ Street":"Tole Bi",
+    "Type":"ramp",
+    "Category":"green ",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/19RjW-Kn5kCZYCkX-rQjNTHlsBsVLD8ZU/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914329,43.254303 ]
+    },
+    "properties": {
+    "Identification (int)":218,
+    "Address":"Mukanova211_1r",
+    "District/ Street":"Kazybek Bi",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1wiX1KfNzb5clG-p7FkxJtl_O-ACQt0QD/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914430,43.255876 ]
+    },
+    "properties": {
+    "Identification (int)":219,
+    "Address":"Mukanova173_1r",
+    "District/ Street":"Mukanova ",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1sslZQgcD0VoX1-5ReNq0UyP4PPapDT1J/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914285,43.255774 ]
+    },
+    "properties": {
+    "Identification (int)":220,
+    "Address":"Mukanova173_2r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1FyCym3gdGpYSgvMbDTjvgQJXbspT9tq6/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914301,43.255960 ]
+    },
+    "properties": {
+    "Identification (int)":221,
+    "Address":"Mukanova173_3r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1mni1emK6FrlndToTvCPKIL1GidrYyZfA/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914202,43.256820 ]
+    },
+    "properties": {
+    "Identification (int)":222,
+    "Address":"Mukanova159_1r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1sZspAwT9K3yDJXBtsbilwBqJcvYEZgfm/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914239,43.257017 ]
+    },
+    "properties": {
+    "Identification (int)":223,
+    "Address":"Mukanova159_2r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1GDymW-lVoJjdChOe07YXhp359np-CF5r/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914248,43.257176 ]
+    },
+    "properties": {
+    "Identification (int)":224,
+    "Address":"Mukanova159_3r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1EWvQoTjod8lbwkrf0-3dn3p6AubCq_LH/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914257,43.257210 ]
+    },
+    "properties": {
+    "Identification (int)":225,
+    "Address":"Mukanova159_4r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1go_RBptQ_ObvovuoN2VGQdQg_5FoajuN/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914275,43.261270 ]
+    },
+    "properties": {
+    "Identification (int)":226,
+    "Address":"Makataeva198/2_1r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1R2yOUWjKuNMXXYAZQ81EaMvClAbmDbnZ/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914391,43.261224 ]
+    },
+    "properties": {
+    "Identification (int)":227,
+    "Address":"Makataeva198/2_2r",
+    "District/ Street":"Mukanova",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1mpcaYJOMJFTsq0Fzl67KWsdpBBBAjPQo/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914752,43.262686 ]
+    },
+    "properties": {
+    "Identification (int)":228,
+    "Address":"Kozhamkulova77_1r",
+    "District/ Street":"Mongolskaya",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1w20fywkY0GW0Fv2_ypDNGjMiGvlA_KLD/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914314,43.263159 ]
+    },
+    "properties": {
+    "Identification (int)":229,
+    "Address":"Mongolskaya44_1r",
+    "District/ Street":"Mongolskaya",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1jxgTnBaWTylSAQV66rfLNbraPwUKczYu/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.899165,43.239522 ]
+    },
+    "properties": {
+    "Identification (int)":230,
+    "Address":"Abay127/Zharokova99_1r",
+    "District/ Street":"Abay",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1fCJbgA-018JkldgYB54OJ_V6iGjzA_o7/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.920633,43.268301 ]
+    },
+    "properties": {
+    "Identification (int)":231,
+    "Address":"Rayimbeka174_1r",
+    "District/ Street":"Rayimbeka",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1FzIPaW9LDqKJ9MhbZ4dnTYt524WCa4OP/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":232,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"28/05/2024",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":233,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"28/05/2024",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":234,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"28/05/2024",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.915118,43.266663 ]
+    },
+    "properties": {
+    "Identification (int)":235,
+    "Address":"Kozhamkulova17_1r",
+    "District/ Street":"Kozhamkulova",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1GGgmurwehiyi1B-VE3X6PsiMC69VOzpK/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.914464,43.267293 ]
+    },
+    "properties": {
+    "Identification (int)":236,
+    "Address":"Rayimbeka186_1r",
+    "District/ Street":"Rayimbeka",
+    "Type":"ramp",
+    "Category":"black",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Q7SXnCzHa_A0yvypyIrMauKs8I3gDlk1/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.917807,43.267922 ]
+    },
+    "properties": {
+    "Identification (int)":237,
+    "Address":"Rayimbeka178_1r",
+    "District/ Street":"Rayimbeka",
+    "Type":"ramp",
+    "Category":"yellow",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/12c_FQb-TMl042lUEOBBORIrrb3PUC8Ut/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918433,43.268031 ]
+    },
+    "properties": {
+    "Identification (int)":238,
+    "Address":"Rayimbeka174/8_1r",
+    "District/ Street":"Rayimbeka",
+    "Type":"ramp",
+    "Category":"red",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1-oTj6N--V2KoLZ9YFEY91YPn5lWOmgJy/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.918365,43.267970 ]
+    },
+    "properties": {
+    "Identification (int)":239,
+    "Address":"Rayimbeka174/8_2r",
+    "District/ Street":"Rayimbeka",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1q9ca5mStlEgJprSja2eYf1W3Ked-chq5/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 76.919058,43.268020 ]
+    },
+    "properties": {
+    "Identification (int)":240,
+    "Address":"Rayimbeka176a_1r",
+    "District/ Street":"Rayimbeka",
+    "Type":"ramp",
+    "Category":"green",
+    "Date":"28/05/2024",
+    "Photo":"https://drive.google.com/file/d/1Bc4Sf0JdY83xZ4VOU0ICofnHACx0GNuv/view?usp=drivesdk",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":241,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":242,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":243,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":244,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  { }
+    },
+    "properties": {
+    "Identification (int)":null,
+    "Address":"",
+    "District/ Street":"",
+    "Type":"ramp",
+    "Category":"",
+    "Date":"",
+    "Photo":"",
+    "Commentary":""
+    }
+  }
+]
+}
