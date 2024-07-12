@@ -6,36 +6,160 @@
     <title>2GIS Navi API</title>
     <meta name="description" content="Navi API directions example" />
     <style>
-        html, body, #container {
+        html, body {
             margin: 0;
-            width: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
             height: 100%;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 2px solid #007bff;
+        }
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+            transition: all .2s ease-in-out;
+        }
+        .button:active {
+            transform: scale(1.05);
+            transition: all .2s ease-in-out;
+        }
+
+        .content {
+            display: flex;
+            padding: 20px;
+            flex-grow: 1;
+        }
+        .testimonials {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .testimonial {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 2px solid #007bff;
+        }
+        .testimonial img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .testimonial-text {
+            font-size: 16px;
+            color: #333;
+        }
+        .map-container {
+            flex-shrink: 0;
+            margin-left: 20px;
+            position: relative; 
+        }
+        #container {
+            width: 1000px; 
+            height: 450px; 
+            border: 2px solid #007bff;
+            border-radius: 8px;
             overflow: hidden;
         }
-        #reset {
-            padding: 4px 10px;
-            background: #00a81f;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px 0 rgba(38, 38, 38, 0.5);
-            border: none;
-            color: #fff;
-            font-size: 13px;
-            cursor: pointer;
+        .sidebar {
+            position: absolute;
+            top: 0;
+            right: -300px; 
+            width: 300px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: right 0.3s ease;
+            border-left: 2px solid #007bff;
         }
-        #reset:disabled {
-            background: #f2f2f2;
-            color: #6e6d6d;
-            cursor: default;
+        .sidebar.open {
+            right: 0;
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar button {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <div id="container"></div>
+    <div class="header">
+        <div class="site-name">Oz Jolyn</div>
+        <div>
+            <button class="button">placeholder</button>
+            <button class="button">placeholder</button>
+            <button class="button">placeholder</button>
+            <button class="button">About us</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="testimonials">
+            <div class="testimonial">
+                <img src="https://via.placeholder.com/50" alt="Avatar">
+                <div class="testimonial-text">
+                   placeholder
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://via.placeholder.com/50" alt="Avatar">
+                <div class="testimonial-text">
+                    placeholder                 
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://via.placeholder.com/50" alt="Avatar">
+                <div class="testimonial-text">
+                    placeholder                 
+                </div>
+            </div>
+            <div class="testimonial">
+                <img src="https://via.placeholder.com/50" alt="Avatar">
+                <div class="testimonial-text">
+                    placeholder                 
+                </div>
+            </div>
+        </div>
+        <div class="map-container">
+            <div id="container"></div>
+            <div class="sidebar" id="sidebar">
+                <h2>Information</h2>
+                <p id="sidebar-content"></p>
+                <button class="button" id="close-sidebar">Close</button>
+            </div>
+        </div>
+    </div>
     <script src="https://mapgl.2gis.com/api/js/v1"></script>
     <script src="https://unpkg.com/@2gis/mapgl-directions@^2/dist/directions.js"></script>
     <script>
         const map = new mapgl.Map('container', {
-            center: [37.668598, 55.76259],
+            center: [76.889709, 43.238949],
             zoom: 13,
             key: '297a0b42-6f4d-4f79-aeaa-117e64c166b1',
         });
@@ -65,6 +189,14 @@
             directions.clear();
             this.disabled = true;
             this.textContent = buttonText[0];
+        });
+
+        const sidebar = document.getElementById('sidebar');
+        const sidebarContent = document.getElementById('sidebar-content');
+        const closeSidebarButton = document.getElementById('close-sidebar');
+
+        closeSidebarButton.addEventListener('click', () => {
+            sidebar.classList.remove('open');
         });
 
         map.on('click', (e) => {
@@ -117,12 +249,19 @@
                 data.features.forEach(feature => {
                     const coord = feature.geometry.coordinates;
                     const properties = feature.properties;
-                    markers.push(
-                        new mapgl.Marker(map, {
-                            coordinates: coord,
-                            icon: 'https://docs.2gis.com/img/dotMarker.svg',
-                        })
-                    );
+                    const marker = new mapgl.Marker(map, {
+                        coordinates: coord,
+                        icon: 'https://docs.2gis.com/img/dotMarker.svg',
+                    });
+
+                    marker.on('click', () => {
+                        const latitude = coord[1];
+                        const longitude = coord[0];
+                        sidebarContent.innerHTML = `<strong>Street:</strong> ${properties.name}<br><strong>Coordinates:</strong> [${latitude}, ${longitude}]`;
+                        sidebar.classList.add('open');
+                    });
+
+                    markers.push(marker);
                 });
             })
             .catch(error => {
@@ -140,9 +279,9 @@
                 .then(data => {
                     data.features.forEach(feature => {
                         const point = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
-                        if (isPointOnRoute(point, routeCoordinates, 0.01)) { // 0.01 is the threshold distance in degrees
+                        if (isPointOnRoute(point, routeCoordinates, 0.01)) { 
                             console.log('Point on route:', feature.properties.name);
-                            // Optionally, you can add a marker or perform some action
+                           
                         }
                     });
                 })
@@ -163,9 +302,9 @@
         }
 
         function haversineDistance([lat1, lon1], [lat2, lon2]) {
-            const R = 6371; // Radius of the Earth in kilometers
+            const R = 6371; 
             const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const dLon = (lat2 - lon1) * Math.PI / 180;
             const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
                       Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
                       Math.sin(dLon / 2) * Math.sin(dLon / 2);
