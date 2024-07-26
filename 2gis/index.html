@@ -68,6 +68,34 @@
                 directions.clear();
                 this.disabled = true;
                 this.textContent = buttonText[0];
+                fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                data.features.forEach(feature =>{
+                    const coord = feature.geometry.coordinates;
+                    const properties = feature.properties;
+                    const category = feature.properties.Category;
+                    const icon = getMarkerIcon(category)
+
+                    console.log(coord)
+                    console.log(properties)
+                    markers.push(
+                            new mapgl.Marker(map,{
+                                    coordinates:coord,
+                                    icon: icon,
+                            }),
+                        );
+                });
+                
+            })
+            .catch(error => {
+                console.error('Error loading GeoJSON data:', error);
+            });
             });
 
             map.on('click', (e) => {
@@ -101,23 +129,26 @@
                     });
                     resetButton.disabled = false;
                     resetButton.textContent = buttonText[1];
-                    fetch('http://localhost:80/impact_prg/2gis/map.geojson')
-                    .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                    })
-                    .then(data => {
-                        data.features.forEach(feature =>{
-                        const coord = feature.geometry.coordinates;
-                        const properties = feature.properties;
-                        console.log(coord)
-                        console.log(properties)
-                        markers.push(
+                   fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                data.features.forEach(feature =>{
+                    const coord = feature.geometry.coordinates;
+                    const properties = feature.properties;
+                    const category = feature.properties.Category;
+                    const icon = getMarkerIcon(category)
+
+                    console.log(coord)
+                    console.log(properties)
+                    markers.push(
                             new mapgl.Marker(map,{
                                     coordinates:coord,
-                                    icon: 'https://docs.2gis.com/img/dotMarker.svg',
+                                    icon: icon,
                             }),
                         );
                 });
@@ -139,12 +170,15 @@
                 data.features.forEach(feature =>{
                     const coord = feature.geometry.coordinates;
                     const properties = feature.properties;
+                    const category = feature.properties.Category;
+                    const icon = getMarkerIcon(category)
+
                     console.log(coord)
                     console.log(properties)
                     markers.push(
                             new mapgl.Marker(map,{
                                     coordinates:coord,
-                                    icon: 'https://docs.2gis.com/img/dotMarker.svg',
+                                    icon: icon,
                             }),
                         );
                 });
@@ -153,6 +187,20 @@
             .catch(error => {
                 console.error('Error loading GeoJSON data:', error);
             });
+            function getMarkerIcon(category) {
+            switch(category) {
+                case 'red':
+                    return 'http://localhost:80/impact_prg/2gis/markers/red.svg';
+                case 'black':
+                    return 'http://localhost:80/impact_prg/2gis/markers/black.svg';
+                case 'green':
+                    return 'http://localhost:80/impact_prg/2gis/markers/green.svg';
+                case 'yellow':
+                    return 'http://localhost:80/impact_prg/2gis/markers/yellow.svg';
+                default:
+                    return 'zero purpose'
+            }
+            }
         </script>
     </body>
 </html>
