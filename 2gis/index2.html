@@ -189,6 +189,7 @@
             directions.clear();
             this.disabled = true;
             this.textContent = buttonText[0];
+            
         });
 
         const sidebar = document.getElementById('sidebar');
@@ -336,6 +337,20 @@
             }
             return haversineDistance([x0, y0], [xx, yy]);
         }
+        function getMarkerIcon(category) {
+            switch(category) {
+                case 'red':
+                    return 'http://localhost:80/impact_prg/2gis/markers/red.svg';
+                case 'black':
+                    return 'http://localhost:80/impact_prg/2gis/markers/black.svg';
+                case 'green':
+                    return 'http://localhost:80/impact_prg/2gis/markers/green.svg';
+                case 'yellow':
+                    return 'http://localhost:80/impact_prg/2gis/markers/yellow.svg';
+                default:
+                    return 'zero purpose'
+        }
+    }
     </script>
 </body>
 </html>
