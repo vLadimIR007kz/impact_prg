@@ -45,7 +45,6 @@
             transform: scale(1.05);
             transition: all .2s ease-in-out;
         }
-
         .content {
             display: flex;
             padding: 20px;
@@ -86,26 +85,78 @@
             border-radius: 8px;
             overflow: hidden;
         }
-        .sidebar {
+        .popup {
+            display: none;
             position: absolute;
-            top: 0;
-            right: -300px; 
-            width: 300px;
-            height: 100%;
-            background-color: #fff;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
             padding: 20px;
-            transition: right 0.3s ease;
-            border-left: 2px solid #007bff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+            z-index: 1000;
+            border: 2px solid #007bff;
         }
-        .sidebar.open {
-            right: 0;
+        .popup.open {
+            display: block;
         }
-        .sidebar h2 {
-            margin-top: 0;
+        .popup-header {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
-        .sidebar button {
-            margin-top: 20px;
+        .popup-content {
+            margin-bottom: 20px;
+        }
+        .popup-close {
+            display: inline-block;
+            margin-left: 10px;
+            cursor: pointer;
+            color: #007bff;
+        }
+        .rating {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+    direction: ltr;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 20px;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.rating input:checked ~ label,
+.rating input:checked ~ label ~ label {
+    color: #ccc;
+}
+
+.rating input:checked + label,
+.rating input:checked + label ~ label {
+    color: #f0ad4e;
+}
+
+.rating label:hover,
+.rating label:hover ~ label {
+    color: #f0ad4e;
+}
+
+        .banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            border-top: 2px solid #007bff;
         }
     </style>
 </head>
@@ -124,36 +175,55 @@
             <div class="testimonial">
                 <img src="https://via.placeholder.com/50" alt="Avatar">
                 <div class="testimonial-text">
-                   placeholder
+                    placeholder
                 </div>
             </div>
             <div class="testimonial">
                 <img src="https://via.placeholder.com/50" alt="Avatar">
                 <div class="testimonial-text">
-                    placeholder                 
+                    placeholder
                 </div>
             </div>
             <div class="testimonial">
                 <img src="https://via.placeholder.com/50" alt="Avatar">
                 <div class="testimonial-text">
-                    placeholder                 
+                    placeholder
                 </div>
             </div>
             <div class="testimonial">
                 <img src="https://via.placeholder.com/50" alt="Avatar">
                 <div class="testimonial-text">
-                    placeholder                 
+                    placeholder
                 </div>
             </div>
         </div>
         <div class="map-container">
             <div id="container"></div>
-            <div class="sidebar" id="sidebar">
-                <h2>Information</h2>
-                <p id="sidebar-content"></p>
-                <button class="button" id="close-sidebar">Close</button>
+            <div class="popup" id="popup">
+                <div class="popup-header">
+                    <span id="popup-title">Point Information</span>
+                    <span class="popup-close" id="popup-close">&times;</span>
+                </div>
+                <div class="popup-content" id="popup-content">
+                   
+                </div>
+                <div class="rating">
+                    <input type="radio" name="rating" id="star5" value="5"><label for="star5">&#9733;</label>
+                    <input type="radio" name="rating" id="star4" value="4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="rating" id="star3" value="3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="rating" id="star2" value="2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="rating" id="star1" value="1"><label for="star1">&#9733;</label>
+                </div>
+                
+                
+                
+                <textarea id="comment" placeholder="Leave a comment..." rows="3" style="width: 100%;"></textarea>
+                <button class="button" id="submit-review">Submit Review</button>
             </div>
         </div>
+    </div>
+    <div class="banner">
+        <p>Advertisement</p>
     </div>
     <script src="https://mapgl.2gis.com/api/js/v1"></script>
     <script src="https://unpkg.com/@2gis/mapgl-directions@^2/dist/directions.js"></script>
@@ -168,182 +238,102 @@
             directionsApiKey: '0cfd5100-db6b-4828-9c5e-bcbbd5d2a725',
         });
 
-        const markers = [];
-        let firstPoint;
-        let secondPoint;
-        let routeCoordinates = [];
-        let selecting = 'a';
-        const buttonText = ['Choose two points on the map', 'Reset points'];
+        const routeMarkers = [];
+const geoJsonMarkers = [];
 
-        const controlsHtml = `<button id="reset" disabled>${buttonText[0]}</button>`;
-        new mapgl.Control(map, controlsHtml, {
-            position: 'topLeft',
-        });
-        const resetButton = document.getElementById('reset');
+let firstPoint;
+let secondPoint;
+let routeCoordinates = [];
+let selecting = 'a';
+const buttonText = ['Choose two points on the map', 'Reset points'];
 
-        resetButton.addEventListener('click', function() {
-            selecting = 'a';
-            firstPoint = undefined;
-            secondPoint = undefined;
-            routeCoordinates = [];
-            directions.clear();
-            this.disabled = true;
-            this.textContent = buttonText[0];
-             fetch('http://localhost:80/impact_prg/2gis/map.geojson')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
+const controlsHtml = `<button id="reset" disabled>${buttonText[0]}</button>`;
+new mapgl.Control(map, controlsHtml, {
+    position: 'topLeft',
+});
+const resetButton = document.getElementById('reset');
+
+resetButton.addEventListener('click', function() {
+    selecting = 'a';
+    firstPoint = undefined;
+    secondPoint = undefined;
+    routeCoordinates = [];
+    directions.clear();
+    this.disabled = true;
+    this.textContent = buttonText[0];
+    clearRouteMarkers(); 
+});
+
+const popup = document.getElementById('popup');
+const popupTitle = document.getElementById('popup-title');
+const popupContent = document.getElementById('popup-content');
+const popupClose = document.getElementById('popup-close');
+const submitReviewButton = document.getElementById('submit-review');
+
+popupClose.addEventListener('click', () => {
+    popup.classList.remove('open');
+});
+
+map.on('click', (e) => {
+    const coords = e.lngLat;
+
+    if (selecting !== 'end') {
+        routeMarkers.push(
+            new mapgl.Marker(map, {
+                coordinates: coords,
+                icon: 'https://docs.2gis.com/img/dotMarker.svg',
             })
-            .then(data => {
-                data.features.forEach(feature =>{
-                    const coord = feature.geometry.coordinates;
-                    const properties = feature.properties;
-                    const category = feature.properties.Category;
-                    const icon = getMarkerIcon(category)
+        );
+    }
 
-                    console.log(coord)
-                    console.log(properties)
-                    markers.push(
-                            new mapgl.Marker(map,{
-                                    coordinates:coord,
-                                    icon: icon,
-                            }),
-                        );
-                });
-                
-            })
-            .catch(error => {
-                console.error('Error loading GeoJSON data:', error);
-            });
-        });
+    if (selecting === 'a') {
+        firstPoint = coords;
+        selecting = 'b';
+    } else if (selecting === 'b') {
+        secondPoint = coords;
+        selecting = 'end';
+    }
 
-        const sidebar = document.getElementById('sidebar');
-        const sidebarContent = document.getElementById('sidebar-content');
-        const closeSidebarButton = document.getElementById('close-sidebar');
-
-        closeSidebarButton.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-        });
-
-        map.on('click', (e) => {
-            const coords = e.lngLat;
-
-            if (selecting != 'end') {
-                markers.push(
-                    new mapgl.Marker(map, {
-                        coordinates: coords,
-                        icon: 'https://docs.2gis.com/img/dotMarker.svg',
-                    })
-                );
+    if (firstPoint && secondPoint) {
+        directions.pedestrianRoute({
+            points: [firstPoint, secondPoint],
+        }).then(result => {
+            if (result && result.routes && result.routes.length > 0 && result.routes[0].geometry) {
+                routeCoordinates = result.routes[0].geometry;
+                checkPointsOnRoute();
+            } else {
+                console.error('No route found');
             }
-
-            if (selecting === 'a') {
-                firstPoint = coords;
-                selecting = 'b';
-            } else if (selecting === 'b') {
-                secondPoint = coords;
-                selecting = 'end';
-            }
-
-            if (firstPoint && secondPoint) {
-                directions.pedestrianRoute({
-                    points: [firstPoint, secondPoint],
-                }).then(result => {
-                    if (result && result.routes && result.routes.length > 0 && result.routes[0].geometry) {
-                        routeCoordinates = result.routes[0].geometry;
-                        checkPointsOnRoute();
-                    } else {
-                        console.error('No route found');
-                    }
-                }).catch(error => {
-                    console.error('Error generating route:', error);
-                });
-                markers.forEach((m) => m.destroy());
-                resetButton.disabled = false;
-                resetButton.textContent = buttonText[1];
-                 fetch('http://localhost:80/impact_prg/2gis/map.geojson')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                data.features.forEach(feature =>{
-                    const coord = feature.geometry.coordinates;
-                    const properties = feature.properties;
-                    const category = feature.properties.Category;
-                    const icon = getMarkerIcon(category)
-
-                    console.log(coord)
-                    console.log(properties)
-                    markers.push(
-                            new mapgl.Marker(map,{
-                                    coordinates:coord,
-                                    icon: icon,
-                            }),
-                        );
-                });
-                
-            })
-            .catch(error => {
-                console.error('Error loading GeoJSON data:', error);
-            });
-            }
+        }).catch(error => {
+            console.error('Error generating route:', error);
         });
+        clearRouteMarkers(); 
+        resetButton.disabled = false;
+        resetButton.textContent = buttonText[1];
+    }
+});
 
-         fetch('http://localhost:80/impact_prg/2gis/map.geojson')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+function checkPointsOnRoute() {
+    fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            data.features.forEach(feature => {
+                const point = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
+                if (isPointOnRoute(point, routeCoordinates, 0.01)) { 
+                    showPopup(feature.properties);
                 }
-                return response.json();
-            })
-            .then(data => {
-                data.features.forEach(feature =>{
-                    const coord = feature.geometry.coordinates;
-                    const properties = feature.properties;
-                    const category = feature.properties.Category;
-                    const icon = getMarkerIcon(category)
-
-                    console.log(coord)
-                    console.log(properties)
-                    markers.push(
-                            new mapgl.Marker(map,{
-                                    coordinates:coord,
-                                    icon: icon,
-                            }),
-                        );
-                });
-                
-            })
-            .catch(error => {
-                console.error('Error loading GeoJSON data:', error);
             });
+        })
+        .catch(error => {
+            console.error('Error checking points on route:', error);
+        });
+}
 
-        function checkPointsOnRoute() {
-            fetch('http://localhost:80/impact_prg/2gis/map.geojson')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    data.features.forEach(feature => {
-                        const point = [feature.geometry.coordinates[1], feature.geometry.coordinates[0]];
-                        if (isPointOnRoute(point, routeCoordinates, 0.01)) { 
-                            console.log('Point on route:', feature.properties.name);
-                           
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error('Error checking points on route:', error);
-                });
-        }
 
         function isPointOnRoute(point, route, threshold) {
             for (let i = 0; i < route.length - 1; i++) {
@@ -359,7 +349,7 @@
         function haversineDistance([lat1, lon1], [lat2, lon2]) {
             const R = 6371; 
             const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lat2 - lon1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
             const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
                       Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
                       Math.sin(dLon / 2) * Math.sin(dLon / 2);
@@ -391,6 +381,7 @@
             }
             return haversineDistance([x0, y0], [xx, yy]);
         }
+
         function getMarkerIcon(category) {
             switch(category) {
                 case 'red':
@@ -402,9 +393,128 @@
                 case 'yellow':
                     return 'http://localhost:80/impact_prg/2gis/markers/yellow.svg';
                 default:
-                    return 'zero purpose'
+                    return 'zero purpose';
+            }
         }
+
+        function showPopup(properties) {
+            popupTitle.textContent = properties.name || 'Unknown';
+            popupContent.innerHTML = `
+                <p>Address: ${properties.Address || 'N/A'}</p>
+                <p>District/Street: ${properties['District/ Street'] || 'N/A'}</p>
+                <p>Type: ${properties.Type || 'N/A'}</p>
+                <p>Category: ${properties.Category || 'N/A'}</p>
+                <p>Latitude: ${properties.Latitude || 'N/A'}</p>
+                <p>Longitude: ${properties.Longitude || 'N/A'}</p>
+                <p>Date: ${properties.Date || 'N/A'}</p>
+                <p>Photo: <a href="${properties.Photo}" target="_blank">View</a></p>
+                <p>Commentary: ${properties.Commentary || 'N/A'}</p>
+            `;
+            popup.classList.add('open');
+        }
+
+        function clearRouteMarkers() {
+    routeMarkers.forEach(marker => marker.destroy());
+    routeMarkers.length = 0;
+}
+
+    
+            
+        const ratingInputs = [...document.querySelectorAll('.rating input')];
+const ratingStars = [...document.querySelectorAll('.rating label')];
+let ratingValue = 0;
+
+ratingInputs.forEach((input, index) => {
+    input.addEventListener('change', () => {
+        ratingValue = input.value;
+    });
+
+    input.addEventListener('click', () => {
+        ratingValue = index + 1; 
+    });
+});
+
+submitReviewButton.addEventListener('click', () => {
+    const comment = document.getElementById('comment').value;
+    console.log(`Rating: ${ratingValue}, Comment: ${comment}`);
+    alert(`Вы оставили оценку: ${ratingValue} и комментарий: ${comment}`);
+
+    ratingInputs.forEach((input) => {
+        input.checked = false;
+    });
+    document.getElementById('comment').value = '';
+
+    popup.classList.remove('open');
+});
+
+ratingStars.forEach((star, index) => {
+    star.addEventListener('mouseenter', () => previewRating(index));
+    star.addEventListener('mouseleave', () => resetRatingPreview());
+    star.addEventListener('click', () => setRating(index));
+});
+
+function previewRating(index) {
+    ratingStars.forEach((star, i) => {
+        if (i <= index) {
+            star.style.color = '#f0ad4e';
+        } else {
+            star.style.color = '#ccc';
+        }
+    });
+}
+
+function resetRatingPreview() {
+    ratingStars.forEach((star, i) => {
+        star.style.color = '#ccc';
+    });
+    if (ratingValue > 0) {
+        setRating(ratingValue - 1); 
     }
+}
+
+function setRating(index) {
+    ratingInputs[index].checked = true;
+    ratingValue = index + 1; 
+    ratingStars.forEach((star, i) => {
+        if (i <= index) {
+            star.style.color = '#f0ad4e';
+        } else {
+            star.style.color = '#ccc';
+        }
+    });
+}
+
+
+
+fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        data.features.forEach(feature => {
+            const coord = feature.geometry.coordinates;
+            const properties = feature.properties;
+            const category = properties.Category;
+            const icon = getMarkerIcon(category);
+
+            const marker = new mapgl.Marker(map, {
+                coordinates: coord,
+                icon: icon,
+            }).on('click', () => {
+                showPopup(properties);
+            });
+
+            geoJsonMarkers.push(marker);
+        });
+    })
+    .catch(error => {
+        console.error('Error loading GeoJSON data:', error);
+    });
+        
     </script>
 </body>
 </html>
+        
