@@ -1,31 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>2GIS Map API</title>
-        <meta name="description" content="GeoJSON complex example" />
-        <style>
-            html,
-            body,
-            #container {
-                margin: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="container"></div>
-        <script src="https://mapgl.2gis.com/api/js/v1"></script>
-        <script>
-            const map = new mapgl.Map('container', {
-                center: [55.4218, 25.3357],
-                zoom: 17,
-                pitch: 45,
-                key: '267e26f4-44a3-4d3c-a10f-465e9cae76a1',
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>2GIS Directions API floors</title>
+    <meta name="description" content="Using Directions API through floors plans" />
+    <meta name="category" content="Directions API" />
+
+    <style>
+        html,
+        body,
+        #map {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .buttons {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+        }
+
+        .buttons button {
+            background: #fff;
+            border: none;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px 0 rgb(38 38 38 / 50%);
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .buttons button:hover {
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div class="buttons">
+        <button id="show-always">Disable dependency on floors</button>
+        <button id="toggle-points">Toggle points</button>
+    </div>
+    <script src="https://mapgl.2gis.com/api/js/v1"></script>
+    <script>
+        const key = '0cfd5100-db6b-4828-9c5e-bcbbd5d2a725';
+        const directionsKey = '0cfd5100-db6b-4828-9c5e-bcbbd5d2a725';
+
+        const map = new mapgl.Map('map', {
+            center: [82.89050491182851, 54.98378006147128],
+            zoom: 18.5,
+            key,
+        });
+        window.addEventListener('resize', () => map.invalidateSize());
+
+        // Enable floor control on the right
+        const floorControl = new mapgl.FloorControl(map, {
+            position: 'topRight',
+        });
+
+        let showPoints = true;
+        let showAlways = false;
+        map.setStyleState({
+            showPoints,
+            showAlways,
+        });
+        document.querySelector('#toggle-points').addEventListener('click', () => {
+            showPoints = !showPoints;
+            map.setStyleState({
+                showPoints,
+                showAlways,
             });
+        });
+        document.querySelector('#show-always').addEventListener('click', (ev) => {
+            showAlways = !showAlways;
+            ev.target.innerHTML = showAlways
+                ? 'Enable dependency on floors'
+                : 'Disable dependency on floors';
+            map.setStyleState({
+                showPoints,
+                showAlways,
+            });
+        });
+
+        // Add styles for points and segments
+        map.once('styleload', () => {
+            const whiteLineStyle = {
+                width: 9,
+                color: '#fff',
+            };
+            const lineStyle = {
+                width: 5,
+                color: ['match', ['get', 'index'], [-1], '#ccc', [0], '#00ff00', [1], '#0000ff', '#ff0000'],
+            };
+
+            // Lines which are showing under houses
+            const lineFilter = [
+                'all',
+                ['==', ['sourceAttr', 'foo'], 'bar'],
+                ['==', ['get', 'type'], 'path'],
+                ['==', ['global', 'showAlways'], false],
+                [
+                    'any',
+                    ['==', ['get', 'floorId'], null],
+                    ['in', ['get', 'floorId'], ['global', '_activeFloorIds']],
+                ],
+            ];
+            map.addLayer(
+                {
+                    id: 'my-line-white',
+                    type: 'line',
+                    filter: lineFilter,
+                    style: whiteLineStyle,
+                },
+                '344517',
+            );
+            map.addLayer(
+                {
+                    id: 'my-line',
+                    type: 'line',
+                    filter: lineFilter,
+                    style: lineStyle,
+                },
+                '344517',
+            );
+
+            // Lines which are showing under houses
+            const lineAboveFilter = [
+                'all',
+                ['==', ['sourceAttr', 'foo'], 'bar'],
+                ['==', ['get', 'type'], 'path'],
+                ['==', ['global', 'showAlways'], true],
+            ];
+            map.addLayer({
+                id: 'my-line-white-above',
+                type: 'line',
+                filter: lineAboveFilter,
+                style: whiteLineStyle,
+            });
+            map.addLayer({
+                id: 'my-line-above',
+                type: 'line',
+                filter: lineAboveFilter,
+                style: lineStyle,
+            });
+
+            map.addLayer({
+                id: 'my-point',
+                type: 'point',
+                filter: [
+                    'all',
+                    ['global', 'showPoints'],
+                    ['==', ['sourceAttr', 'foo'], 'bar'],
+                    ['==', ['get', 'type'], 'point'],
+                    [
+                        'any',
+                        ['==', ['global', 'showAlways'], true],
+                        ['==', ['get', 'floorId'], null],
+                        ['in', ['get', 'floorId'], ['global', '_activeFloorIds']],
+                    ],
+                ],
+                style: {
+                    iconImage: 'ent',
+                    iconWidth: 15,
+                    textFont: 'Noto_Sans',
+                    textFontSize: 10,
+                    textField: ['get', 'comment'],
+                    iconPriority: 1000,
+                    textPriority: 1000,
+                    textHaloWidth: 1,
+                    textHaloColor: '#fff',
+                    allowOverlap: true,
+                },
+            });
+            map.addLayer({
+                id: 'my-point-end',
+                type: 'point',
+                filter: ['all', ['==', ['sourceAttr', 'foo'], 'bar'], ['==', ['get', 'type'], 'end']],
+                style: {
+                    iconImage: [
+                        'match',
+                        [
+                            'any',
+                            ['==', ['get', 'floorId'], null],
+                            ['==', ['global', 'showAlways'], true],
+                            ['in', ['get', 'floorId'], ['global', '_activeFloorIds']],
+                        ],
+                        [true],
+                        'ent_i',
+                        'ent',
+                    ],
+                    iconWidth: 30,
+                    textFont: 'Noto_Sans_Semibold',
+                    textFontSize: 14,
+                    textField: ['get', 'comment'],
+                    iconPriority: 2000,
+                    textPriority: 2000,
+                    textColor: '#fff',
+                    textPlacement: 'centerCenter',
+                },
+            });
+        });
+
+        const points = [
+            {
+                type: 'pedo',
+                x: 82.88828966022959,
+                y: 54.983109254770376,
+            },
+            {
+                type: 'pedo',
+                x: 82.89149408367815,
+                y: 54.98388809715867,
+                object_id: '141265770013202',
+                floor_id: '141832716803532',
+            },
+        ];
+
+        fetchAndDrawRoute();
+
+        function fetchAndDrawRoute() {
+            const query = {
+                type: 'pedestrian',
+                points,
+                use_indoor: true,
+                options: ['pedestrian_instructions'],
+            };
+
+            return fetch(`https://catalog.api.2gis.ru/carrouting/6.0.0/global?key=${directionsKey}`, {
+                method: 'post',
+                body: JSON.stringify(query),
+            })
+                .then((r) => {
+                    if (r.status !== 200) {
+                        throw new Error(`HTTP code is ${r.status}`);
+                    }
+                    return r.json();
+                })
+                .then((r) => drawRoute(query.points, r.result && r.result[0]))
+                .catch((reason) => console.error(reason));
+        }
+
+        const geojsonSource = new mapgl.GeoJsonSource(map, {
+            data: {
+                type: 'FeatureCollection',
+                features: [],
+            },
+            attributes: {
+                foo: 'bar',
+            },
+        });
+
+        function drawRoute(points, result) {
+            if (!result) {
+                return;
+            }
 
             const data = {
                 type: 'FeatureCollection',
@@ -33,211 +265,155 @@
                     {
                         type: 'Feature',
                         properties: {
-                            type: 'topLine',
-                        },
-                        geometry: {
-                            type: 'LineString',
-                            coordinates: [
-                                [55.41612267494202, 25.3373063569028],
-                                [55.418890714645386, 25.33572577372391],
-                                [55.41969537734985, 25.336870001646474],
-                                [55.42081117630005, 25.33621061738493],
-                                [55.421626567840576, 25.337393627765234],
-                                [55.42233467102051, 25.336966969617198],
-                                [55.42382597923279, 25.339100245313542],
-                            ],
-                        },
-                    },
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'star',
-                        },
-                        geometry: {
-                            type: 'Polygon',
-                            coordinates: [
-                                [
-                                    [55.422656536102316, 25.335250625051458],
-                                    [55.42331099510195, 25.335570623342118],
-                                    [55.42392253875736, 25.33520214038817],
-                                    [55.423622131347685, 25.335774258177413],
-                                    [55.42422294616701, 25.336074861355655],
-                                    [55.423579216003446, 25.33610395194616],
-                                    [55.42338609695437, 25.336666368655063],
-                                    [55.42309641838077, 25.336123345669286],
-                                    [55.422409772872946, 25.33614273938931],
-                                    [55.42298913002018, 25.33580334884018],
-                                    [55.422656536102316, 25.335250625051458],
-                                ],
-                            ],
-                        },
-                    },
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'star',
-                        },
-                        geometry: {
-                            type: 'Polygon',
-                            coordinates: [
-                                [
-                                    [55.419437885284445, 25.334988807638815],
-                                    [55.42009234428408, 25.335308806621768],
-                                    [55.42070388793948, 25.334940322870644],
-                                    [55.420403480529814, 25.33551244189763],
-                                    [55.42100429534914, 25.335813045726233],
-                                    [55.42036056518557, 25.33584213637969],
-                                    [55.420167446136496, 25.336404554305396],
-                                    [55.419877767562895, 25.335861530144776],
-                                    [55.419191122055075, 25.335880923906757],
-                                    [55.419770479202306, 25.33554153262335],
-                                    [55.419437885284445, 25.334988807638815],
-                                ],
-                            ],
-                        },
-                    },
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'bottomLine',
-                        },
-                        geometry: {
-                            type: 'LineString',
-                            coordinates: [
-                                [55.42360067367554, 25.33460092894936],
-                                [55.42147636413574, 25.335803348840205],
-                                [55.42107939720153, 25.335231231188487],
-                                [55.42302131652832, 25.334077290746556],
-                            ],
-                        },
-                    },
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'marker',
-                            label: 'Star #2',
-                            color: 'blue',
+                            type: 'end',
+                            comment: 'A',
+                            floorId: points[0].floor_id,
                         },
                         geometry: {
                             type: 'Point',
-                            coordinates: [55.42332172393799, 25.33587122702617],
+                            coordinates: [points[0].x, points[0].y],
                         },
                     },
                     {
                         type: 'Feature',
                         properties: {
-                            type: 'marker',
-                            label: 'Star #1',
-                            color: 'blue',
+                            type: 'end',
+                            comment: 'B',
+                            floorId: points[1].floor_id,
                         },
                         geometry: {
                             type: 'Point',
-                            coordinates: [55.420124530792236, 25.335590017150714],
-                        },
-                    },
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'marker',
-                            color: 'gray',
-                        },
-                        geometry: {
-                            type: 'Point',
-                            coordinates: [55.4215407371521, 25.336588794091984],
-                        },
-                    },
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'marker',
-                            color: 'gray',
-                        },
-                        geometry: {
-                            type: 'Point',
-                            coordinates: [55.42234539985657, 25.33490153504211],
+                            coordinates: [points[1].x, points[1].y],
                         },
                     },
                 ],
             };
 
-            const source = new mapgl.GeoJsonSource(map, {
-                data,
-                attributes: {
-                    bar: 'asd',
-                },
+            let colorIndex = 0;
+            let isFirstSegmentAdded = false;
+            let lastPoint = {
+                coordinates: [points[0].x, points[0].y],
+                floorId: points[0].floor_id,
+            };
+
+            result.maneuvers.forEach((maneuver) => {
+                if (maneuver.outcoming_path && maneuver.outcoming_path.geometry.length) {
+                    const firstCoord = parserLineStringWKT(
+                        maneuver.outcoming_path.geometry[0].selection,
+                    )[0];
+
+                    if (maneuver.comment) {
+                        data.features.push({
+                            type: 'Feature',
+                            properties: {
+                                type: 'point',
+                                comment: maneuver.comment,
+                                floorId: maneuver.outcoming_path.floor_from,
+                            },
+                            geometry: {
+                                type: 'Point',
+                                coordinates: firstCoord,
+                            },
+                        });
+                    }
+
+                    if (!isFirstSegmentAdded) {
+                        isFirstSegmentAdded = true;
+                        data.features.push({
+                            type: 'Feature',
+                            properties: {
+                                type: 'path',
+                                index: -1,
+                                floorId: maneuver.outcoming_path.floor_from,
+                            },
+                            geometry: {
+                                type: 'LineString',
+                                coordinates: [[points[0].x, points[0].y], firstCoord],
+                            },
+                        });
+                    }
+
+                    maneuver.outcoming_path.geometry.forEach((geometry) => {
+                        const coordinates = parserLineStringWKT(geometry.selection);
+                        data.features.push({
+                            type: 'Feature',
+                            properties: {
+                                type: 'path',
+                                index: colorIndex++ % 3,
+                                floorId: maneuver.outcoming_path.floor_to,
+                            },
+                            geometry: {
+                                type: 'LineString',
+                                coordinates,
+                            },
+                        });
+                        lastPoint = {
+                            coordinates: coordinates[coordinates.length - 1],
+                            floorId: maneuver.outcoming_path.floor_to,
+                        };
+                    });
+                } else if (maneuver.comment) {
+                    data.features.push({
+                        type: 'Feature',
+                        properties: {
+                            type: 'point',
+                            comment: maneuver.comment,
+                            floorId: lastPoint.floorId,
+                        },
+                        geometry: {
+                            type: 'Point',
+                            coordinates: lastPoint.coordinates,
+                        },
+                    });
+                }
             });
 
-            map.on('styleload', () => {
-                map.addLayer(
-                    {
-                        type: 'polygon',
-                        id: 'my-stars',
-                        filter: [
-                            'all',
-                            ['match', ['sourceAttr', 'bar'], ['asd'], true, false],
-                            ['match', ['get', 'type'], ['star'], true, false],
-                        ],
-                        style: {
-                            color: '#fcc9ff',
-                        },
+            if (lastPoint) {
+                data.features.push({
+                    type: 'Feature',
+                    properties: {
+                        type: 'path',
+                        floorId: lastPoint.floorId,
+                        index: -1,
                     },
-                    '31871',
-                );
-                map.addLayer(
-                    {
-                        type: 'dashedLine',
-                        id: 'my-dashedline',
-                        filter: [
-                            'all',
-                            ['match', ['sourceAttr', 'bar'], ['asd'], true, false],
-                            ['match', ['get', 'type'], ['topLine'], true, false],
-                        ],
-                        style: {
-                            color: '#0baf08',
-                            width: 10,
-                            dashLength: 10,
-                            gapLength: 5,
-                        },
-                    },
-                    '973940',
-                );
-                map.addLayer(
-                    {
-                        type: 'line',
-                        id: 'my-line',
-                        filter: [
-                            'all',
-                            ['match', ['sourceAttr', 'bar'], ['asd'], true, false],
-                            ['match', ['get', 'type'], ['bottomLine'], true, false],
-                        ],
-                        style: {
-                            color: '#ffcd17',
-                            width: 7,
-                        },
-                    },
-                    '973940',
-                );
-                map.addLayer({
-                    type: 'point',
-                    id: 'my-marker',
-                    filter: [
-                        'all',
-                        ['match', ['sourceAttr', 'bar'], ['asd'], true, false],
-                        ['match', ['get', 'type'], ['marker'], true, false],
-                    ],
-                    style: {
-                        iconImage: ['match', ['get', 'color'], ['blue'], 'ent_i', 'ent'],
-                        iconWidth: 25,
-                        textField: ['get', 'label'],
-                        textFont: ['Noto_Sans'],
-                        textColor: '#0098ea',
-                        textHaloColor: '#fff',
-                        textHaloWidth: 1,
-                        iconPriority: 100,
-                        textPriority: 100,
+                    geometry: {
+                        type: 'LineString',
+                        coordinates: [lastPoint.coordinates, [points[1].x, points[1].y]],
                     },
                 });
-            });
-        </script>
-    </body>
+            }
+
+            geojsonSource.setData(data);
+        }
+
+        map.on('click', (event) => {
+            if (event.targetData?.floorId) {
+                points.push({
+                    type: 'pedo',
+                    x: event.lngLat[0],
+                    y: event.lngLat[1],
+                    floor_id: event.targetData.floorId,
+                    object_id: event.targetData.id,
+                });
+            } else {
+                points.push({
+                    type: 'pedo',
+                    x: event.lngLat[0],
+                    y: event.lngLat[1],
+                });
+            }
+
+            points.splice(0, 1);
+            fetchAndDrawRoute();
+        });
+
+        function parserLineStringWKT(wkt) {
+            return wkt
+                .slice('LINESTRING('.length, -1)
+                .split(',')
+                .map((c) => c.trim().split(' ').map(Number));
+        }
+    </script>
+</body>
+
 </html>
