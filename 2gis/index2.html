@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2GIS Navi API</title>
     <meta name="description" content="Navi API directions example" />
     <style>
-        html, body {
+        html,
+        body {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
@@ -14,6 +16,7 @@
             flex-direction: column;
             height: 100%;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
@@ -23,10 +26,12 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border: 2px solid #007bff;
         }
+
         .site-name {
             font-size: 24px;
             font-weight: bold;
         }
+
         .button {
             background-color: #007bff;
             color: white;
@@ -36,26 +41,31 @@
             cursor: pointer;
             margin-left: 10px;
         }
+
         .button:hover {
             background-color: #0056b3;
             transform: scale(1.1);
             transition: all .2s ease-in-out;
         }
+
         .button:active {
             transform: scale(1.05);
             transition: all .2s ease-in-out;
         }
+
         .content {
             display: flex;
             padding: 20px;
             flex-grow: 1;
         }
+
         .testimonials {
             flex: 1;
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
+
         .testimonial {
             display: flex;
             align-items: center;
@@ -65,26 +75,31 @@
             border-radius: 8px;
             border: 2px solid #007bff;
         }
+
         .testimonial img {
             border-radius: 50%;
             margin-right: 20px;
         }
+
         .testimonial-text {
             font-size: 16px;
             color: #333;
         }
+
         .map-container {
             flex-shrink: 0;
             margin-left: 20px;
-            position: relative; 
+            position: relative;
         }
+
         #container {
-            width: 1000px; 
-            height: 450px; 
+            width: 1000px;
+            height: 450px;
             border: 2px solid #007bff;
             border-radius: 8px;
             overflow: hidden;
         }
+
         .popup {
             display: none;
             position: absolute;
@@ -99,53 +114,58 @@
             z-index: 1000;
             border: 2px solid #007bff;
         }
+
         .popup.open {
             display: block;
         }
+
         .popup-header {
             font-size: 18px;
             margin-bottom: 10px;
         }
+
         .popup-content {
             margin-bottom: 20px;
         }
+
         .popup-close {
             display: inline-block;
             margin-left: 10px;
             cursor: pointer;
             color: #007bff;
         }
+
         .rating {
-    display: flex;
-    gap: 5px;
-    margin-bottom: 10px;
-    direction: ltr;
-}
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+            direction: ltr;
+        }
 
-.rating input {
-    display: none;
-}
+        .rating input {
+            display: none;
+        }
 
-.rating label {
-    font-size: 20px;
-    color: #ccc;
-    cursor: pointer;
-}
+        .rating label {
+            font-size: 20px;
+            color: #ccc;
+            cursor: pointer;
+        }
 
-.rating input:checked ~ label,
-.rating input:checked ~ label ~ label {
-    color: #ccc;
-}
+        .rating input:checked~label,
+        .rating input:checked~label~label {
+            color: #ccc;
+        }
 
-.rating input:checked + label,
-.rating input:checked + label ~ label {
-    color: #f0ad4e;
-}
+        .rating input:checked+label,
+        .rating input:checked+label~label {
+            color: #f0ad4e;
+        }
 
-.rating label:hover,
-.rating label:hover ~ label {
-    color: #f0ad4e;
-}
+        .rating label:hover,
+        .rating label:hover~label {
+            color: #f0ad4e;
+        }
 
         .banner {
             position: fixed;
@@ -158,8 +178,52 @@
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
             border-top: 2px solid #007bff;
         }
+
+       
+        .about-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    z-index: 2000;
+    border: 2px solid #007bff;
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.about-popup.open {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+
+        .about-popup-header {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-popup-close {
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .about-popup-content {
+            font-size: 16px;
+            color: #333;
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
         <div class="site-name">Oz Jolyn</div>
@@ -167,7 +231,7 @@
             <button class="button">placeholder</button>
             <button class="button">placeholder</button>
             <button class="button">placeholder</button>
-            <button class="button">About us</button>
+            <button class="button" id="about-us-btn">About us</button>
         </div>
     </div>
     <div class="content">
@@ -197,6 +261,7 @@
                 </div>
             </div>
         </div>
+
         <div class="map-container">
             <div id="container"></div>
             <div class="popup" id="popup">
@@ -205,7 +270,7 @@
                     <span class="popup-close" id="popup-close">&times;</span>
                 </div>
                 <div class="popup-content" id="popup-content">
-                   
+                 
                 </div>
                 <div class="rating">
                     <input type="radio" name="rating" id="star5" value="5"><label for="star5">&#9733;</label>
@@ -214,8 +279,6 @@
                     <input type="radio" name="rating" id="star2" value="2"><label for="star2">&#9733;</label>
                     <input type="radio" name="rating" id="star1" value="1"><label for="star1">&#9733;</label>
                 </div>
-                
-                
                 
                 <textarea id="comment" placeholder="Leave a comment..." rows="3" style="width: 100%;"></textarea>
                 <button class="button" id="submit-review">Submit Review</button>
@@ -227,11 +290,36 @@
     </div>
     <script src="https://mapgl.2gis.com/api/js/v1"></script>
     <script src="https://unpkg.com/@2gis/mapgl-directions@^2/dist/directions.js"></script>
+   
+    <div class="about-popup" id="about-popup">
+        <div class="about-popup-header">
+            <span>About Us</span>
+            <span class="about-popup-close" id="about-popup-close">&times;</span>
+        </div>
+        <div class="about-popup-content">
+            <p><strong>Instagram:</strong> @oz_jolyn</p>
+            <p><strong>Telegram:</strong> @ozjolyn</p>
+            <p><strong>Phone:</strong> +1234567890</p>
+            <p><strong>Email:</strong> ozjolyn@example.com</p>
+        </div>
+    </div>
+
+    <script src="https://maps.api.2gis.com/2.0/loader.js?pkg=full"></script>
     <script>
+        const aboutUsBtn = document.getElementById("about-us-btn");
+        const aboutPopup = document.getElementById("about-popup");
+        const aboutPopupClose = document.getElementById("about-popup-close");
         const map = new mapgl.Map('container', {
             center: [76.889709, 43.238949],
             zoom: 13,
             key: '0cfd5100-db6b-4828-9c5e-bcbbd5d2a725',
+        });
+        aboutUsBtn.addEventListener("click", () => {
+            aboutPopup.classList.add("open");
+        });
+
+        aboutPopupClose.addEventListener("click", () => {
+            aboutPopup.classList.remove("open");
         });
 
         const directions = new mapgl.Directions(map, {
@@ -239,42 +327,41 @@
         });
 
         const routeMarkers = [];
-const geoJsonMarkers = [];
+        const geoJsonMarkers = [];
+        let firstPoint;
+        let secondPoint;
+        let routeCoordinates = [];
+        let selecting = 'a';
+        const buttonText = ['Choose two points on the map', 'Reset points'];
 
-let firstPoint;
-let secondPoint;
-let routeCoordinates = [];
-let selecting = 'a';
-const buttonText = ['Choose two points on the map', 'Reset points'];
+        const controlsHtml = `<button id="reset" disabled>${buttonText[0]}</button>`;
+        new mapgl.Control(map, controlsHtml, {
+        position: 'topLeft',
+        });
 
-const controlsHtml = `<button id="reset" disabled>${buttonText[0]}</button>`;
-new mapgl.Control(map, controlsHtml, {
-    position: 'topLeft',
-});
-const resetButton = document.getElementById('reset');
-
-resetButton.addEventListener('click', function() {
+        const resetButton = document.getElementById('reset');
+        resetButton.addEventListener('click', function () {
     selecting = 'a';
     firstPoint = undefined;
     secondPoint = undefined;
     routeCoordinates = [];
     directions.clear();
-    this.disabled = true;
+    clearRouteMarkers();
+    this.disabled = true; 
     this.textContent = buttonText[0];
-    clearRouteMarkers(); 
 });
 
-const popup = document.getElementById('popup');
-const popupTitle = document.getElementById('popup-title');
-const popupContent = document.getElementById('popup-content');
-const popupClose = document.getElementById('popup-close');
-const submitReviewButton = document.getElementById('submit-review');
+        const popup = document.getElementById('popup');
+        const popupTitle = document.getElementById('popup-title');
+        const popupContent = document.getElementById('popup-content');
+        const popupClose = document.getElementById('popup-close');
+        const submitReviewButton = document.getElementById('submit-review');
 
-popupClose.addEventListener('click', () => {
-    popup.classList.remove('open');
-});
+        popupClose.addEventListener('click', () => {
+            popup.classList.remove('open');
+        });
 
-map.on('click', (e) => {
+        map.on('click', (e) => {
     const coords = e.lngLat;
 
     if (selecting !== 'end') {
@@ -292,6 +379,8 @@ map.on('click', (e) => {
     } else if (selecting === 'b') {
         secondPoint = coords;
         selecting = 'end';
+        resetButton.disabled = false; 
+        resetButton.textContent = buttonText[1];
     }
 
     if (firstPoint && secondPoint) {
@@ -307,14 +396,13 @@ map.on('click', (e) => {
         }).catch(error => {
             console.error('Error generating route:', error);
         });
-        clearRouteMarkers(); 
-        resetButton.disabled = false;
-        resetButton.textContent = buttonText[1];
     }
 });
 
+        
+
         function getMarkerIcon(category) {
-            switch(category) {
+            switch (category) {
                 case 'red':
                     return 'http://localhost:80/impact_prg/2gis/markers/red.svg';
                 case 'black':
@@ -345,12 +433,10 @@ map.on('click', (e) => {
         }
 
         function clearRouteMarkers() {
-    routeMarkers.forEach(marker => marker.destroy());
-    routeMarkers.length = 0;
-}
+            routeMarkers.forEach(marker => marker.destroy());
+            routeMarkers.length = 0;
+        }
 
-    
-            
         const ratingInputs = [...document.querySelectorAll('.rating input')];
 const ratingStars = [...document.querySelectorAll('.rating label')];
 let ratingValue = 0;
@@ -374,6 +460,8 @@ submitReviewButton.addEventListener('click', () => {
         input.checked = false;
     });
     document.getElementById('comment').value = '';
+    ratingValue = 0;
+    resetRatingPreview();
 
     popup.classList.remove('open');
 });
@@ -416,35 +504,34 @@ function setRating(index) {
 }
 
 
+        fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                data.features.forEach(feature => {
+                    const coord = feature.geometry.coordinates;
+                    const properties = feature.properties;
+                    const category = properties.Category;
+                    const icon = getMarkerIcon(category);
 
-fetch('http://localhost:80/impact_prg/2gis/map.geojson')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        data.features.forEach(feature => {
-            const coord = feature.geometry.coordinates;
-            const properties = feature.properties;
-            const category = properties.Category;
-            const icon = getMarkerIcon(category);
+                    const marker = new mapgl.Marker(map, {
+                        coordinates: coord,
+                        icon: icon,
+                    }).on('click', () => {
+                        showPopup(properties);
+                    });
 
-            const marker = new mapgl.Marker(map, {
-                coordinates: coord,
-                icon: icon,
-            }).on('click', () => {
-                showPopup(properties);
+                    geoJsonMarkers.push(marker);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading GeoJSON data:', error);
             });
-
-            geoJsonMarkers.push(marker);
-        });
-    })
-    .catch(error => {
-        console.error('Error loading GeoJSON data:', error);
-    });
-        
     </script>
 </body>
+
 </html>
