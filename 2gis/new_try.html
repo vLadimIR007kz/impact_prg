@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>2GIS Directions API Example</title>
+    <meta name="description" content="2GIS Directions API example with clickable map points" />
+    <meta name="category" content="Directions API" />
+
+    <style>
+        html,
+        body,
+        #map {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <script src="https://mapgl.2gis.com/api/js/v1"></script>
+    <script>
+        const key = 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9';  // Замените на ваш ключ API для карты
+        const directionsKey = 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9';  // Замените на ваш ключ API для маршрутизации
+
+        const map = new mapgl.Map('map', {
+            center: [82.89050491182851, 54.98378006147128],
+            zoom: 18.5,
+            key: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
+        }); 
+
+        window.addEventListener('resize', () => map.invalidateSize());
+
+        // Массив для хранения точек
+        const points = [];
+
+        // Источник GeoJson для отображения маршрута
+        const geojsonSource = new mapgl.GeoJsonSource(map, {
+            data: {
+                type: 'FeatureCollection',
+                features: [],
+            },
+            attributes: {
+                foo: 'bar',
+            },
+        });
+
+        function fetchAndDrawRoute() {
+            if (points.length < 2) {
+                console.log("Не хватает точек для расчета маршрута");
+                return;
+            }
+
+            const query = {
+                type: 'pedestrian',
+                points: points,
+                use_indoor: true,
+                options: ['pedestrian_instructions'],
+            };
+
+            fetch(`https://catalog.api.2gis.ru/carrouting/6.0.0/global?key=${directionsKey}`, {
+                method: 'post',
+                body: JSON.stringify(query),
+            })
+            .then(r => r.json())
+            .then(r => drawRoute(points, r.result && r.result[0]))
+            .catch(reason => console.error(reason));
+        }
+
+        function drawRoute(points, result) {
+            if (!result) {
+                return;
+            }
+
+            const data = {
+                type: 'FeatureCollection',
+                features: [
+                    {
+                        type: 'Feature',
+                        properties: {
+                            type: 'end',
+                            comment: 'Start',
+                        },
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [points[0].x, points[0].y],
+                        },
+                    },
+                    {
+                        type: 'Feature',
+                        properties: {
+                            type: 'end',
+                            comment: 'End',
+                        },
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [points[1].x, points[1].y],
+                        },
+                    },
+                ],
+            };
+
+            result.maneuvers.forEach(maneuver => {
+                if (maneuver.outcoming_path && maneuver.outcoming_path.geometry.length) {
+                    maneuver.outcoming_path.geometry.forEach(geometry => {
+                        const coordinates = parserLineStringWKT(geometry.selection);
+                        data.features.push({
+                            type: 'Feature',
+                            properties: {
+                                type: 'path',
+                            },
+                            geometry: {
+                                type: 'LineString',
+                                coordinates,
+                            },
+                        });
+                    });
+                }
+            });
+
+            geojsonSource.setData(data);
+        }
+
+        map.on('click', (event) => {
+            points.push({
+                x: event.lngLat[0],
+                y: event.lngLat[1],
+            });
+
+            if (points.length > 2) {
+                points.shift(); // Оставляем только последние две точки
+            }
+
+            fetchAndDrawRoute();
+        });
+
+        function parserLineStringWKT(wkt) {
+            return wkt
+                .slice('LINESTRING('.length, -1)
+                .split(',')
+                .map(c => c.trim().split(' ').map(Number));
+        }
+    </script>
+</body>
+
+</html>
