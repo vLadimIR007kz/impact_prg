@@ -47,8 +47,8 @@
     </div>
     <script src="https://mapgl.2gis.com/api/js/v1"></script>
     <script>
-        const key = '0cfd5100-db6b-4828-9c5e-bcbbd5d2a725';
-        const directionsKey = '0cfd5100-db6b-4828-9c5e-bcbbd5d2a725';
+        const key = 'Your API access key';
+        const directionsKey = 'Your directions API access key';
 
         const map = new mapgl.Map('map', {
             center: [82.89050491182851, 54.98378006147128],
@@ -215,6 +215,8 @@
                 type: 'pedo',
                 x: 82.89149408367815,
                 y: 54.98388809715867,
+                object_id: '141265770013202',
+                floor_id: '141832716803532',
             },
         ];
 
@@ -227,7 +229,7 @@
                 use_indoor: true,
                 options: ['pedestrian_instructions'],
             };
-            console.log(query.points);
+
             return fetch(`https://catalog.api.2gis.ru/carrouting/6.0.0/global?key=${directionsKey}`, {
                 method: 'post',
                 body: JSON.stringify(query),
@@ -291,6 +293,7 @@
             let isFirstSegmentAdded = false;
             let lastPoint = {
                 coordinates: [points[0].x, points[0].y],
+                floorId: points[0].floor_id,
             };
 
             result.maneuvers.forEach((maneuver) => {
@@ -305,6 +308,7 @@
                             properties: {
                                 type: 'point',
                                 comment: maneuver.comment,
+                                floorId: maneuver.outcoming_path.floor_from,
                             },
                             geometry: {
                                 type: 'Point',
@@ -320,6 +324,7 @@
                             properties: {
                                 type: 'path',
                                 index: -1,
+                                floorId: maneuver.outcoming_path.floor_from,
                             },
                             geometry: {
                                 type: 'LineString',
@@ -335,6 +340,7 @@
                             properties: {
                                 type: 'path',
                                 index: colorIndex++ % 3,
+                                floorId: maneuver.outcoming_path.floor_to,
                             },
                             geometry: {
                                 type: 'LineString',
@@ -343,6 +349,7 @@
                         });
                         lastPoint = {
                             coordinates: coordinates[coordinates.length - 1],
+                            floorId: maneuver.outcoming_path.floor_to,
                         };
                     });
                 } else if (maneuver.comment) {
@@ -351,6 +358,7 @@
                         properties: {
                             type: 'point',
                             comment: maneuver.comment,
+                            floorId: lastPoint.floorId,
                         },
                         geometry: {
                             type: 'Point',
@@ -365,6 +373,7 @@
                     type: 'Feature',
                     properties: {
                         type: 'path',
+                        floorId: lastPoint.floorId,
                         index: -1,
                     },
                     geometry: {
@@ -383,6 +392,7 @@
                     type: 'pedo',
                     x: event.lngLat[0],
                     y: event.lngLat[1],
+                    floor_id: event.targetData.floorId,
                     object_id: event.targetData.id,
                 });
             } else {

@@ -1,150 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>2GIS Directions API Example</title>
-    <meta name="description" content="2GIS Directions API example with clickable map points" />
-    <meta name="category" content="Directions API" />
-
     <style>
-        html,
-        body,
-        #map {
+        html, body, #map {
             margin: 0;
+            padding: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
         }
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+            background: white;
+            padding: 5px;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        #clear-button {
+            padding: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #clear-button:hover {
+            background-color: #e60000;
+        }
     </style>
 </head>
-
 <body>
+    <div id="controls">
+        <button id="clear-button">Clear Route</button>
+    </div>
     <div id="map"></div>
-    <script src="https://mapgl.2gis.com/api/js/v1"></script>
+    <script src="https://mapgl.2gis.com/api/js/v1?key=eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9"></script>
     <script>
-        const key = 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9';  // Замените на ваш ключ API для карты
-        const directionsKey = 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9';  // Замените на ваш ключ API для маршрутизации
-
         const map = new mapgl.Map('map', {
-            center: [82.89050491182851, 54.98378006147128],
-            zoom: 18.5,
+            center: [76.8512, 43.2220],
+            zoom: 15,
             key: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
-        }); 
-
-        window.addEventListener('resize', () => map.invalidateSize());
-
-        // Массив для хранения точек
+        });
+        const redMarkers=[];
+        const directionsKey = 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9';
         const points = [];
+        const markers = [];
+        let geojsonSource;
+        let clickHandler;
+        // Создаем источник данных GeoJSON
+        map.once('styleload', () => {
+            geojsonSource = new mapgl.GeoJsonSource(map, {
+                data: {
+                    type: 'FeatureCollection',
+                    features: [],
+                },
+                attributes: {
+                    foo: 'bar',
+                },
+            });
 
-        // Источник GeoJson для отображения маршрута
-        const geojsonSource = new mapgl.GeoJsonSource(map, {
-            data: {
-                type: 'FeatureCollection',
-                features: [],
-            },
-            attributes: {
-                foo: 'bar',
-            },
+            map.addLayer({
+                id: 'my-line',
+                type: 'line',
+                source: geojsonSource,
+                filter: [
+                    'all',
+                    ['==', ['sourceAttr', 'foo'], 'bar'],
+                    ['==', ['get', 'type'], 'path']
+                ],
+                style: {
+                    color: '#00ff00', // Зеленый цвет для линии маршрута
+                    width: 5,
+                },
+            });
+
+            map.addLayer({
+                id: 'my-point',
+                type: 'point',
+                source: geojsonSource,
+                filter: [
+                    'all',
+                    ['==', ['sourceAttr', 'foo'], 'bar'],
+                    ['==', ['get', 'type'], 'point']
+                ],
+                style: {
+                    iconImage: 'https://docs.2gis.com/img/dotMarker.svg',
+                    iconWidth: 15,
+                    textFont: 'Noto_Sans',
+                    textFontSize: 10,
+                    textField: ['get', 'comment'],
+                    textHaloWidth: 1,
+                    textHaloColor: '#fff',
+                    textColor: '#000',
+                },
+            });
         });
 
-        function fetchAndDrawRoute() {
-            if (points.length < 2) {
-                console.log("Не хватает точек для расчета маршрута");
-                return;
-            }
+        fetch('http://nazareq0.beget.tech:80/map.geojson', { mode: 'no-cors' })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
 
+                data.features.forEach(feature => {
+                    const coord = feature.geometry.coordinates;
+                    const category = feature.properties.Category;
+                    const icon = getMarkerIcon(category);
+
+                    // Проверяем, является ли иконка красной
+
+                    markers.push(
+                        new mapgl.Marker(map, {
+                            coordinates: coord,
+                            icon: icon,
+                            category: category
+                        }),
+                    );
+                    if (category=='red'){
+                        redMarkers.push(coord);
+                        console.log(redMarkers);
+                    }
+                });
+
+            })
+            .catch(error => {
+                console.error('Error loading GeoJSON data:', error);
+            });
+
+        // Обработчик кликов на карту
+        clickHandler = (event) => {
+            if (points.length >= 2) return; // Не добавляем больше маркеров, если уже установлены 2
+
+            const coords = event.lngLat;
+            points.push([coords[0], coords[1]]);
+            addMarker(coords);
+            if (points.length > 1) {
+                fetchAndDrawRoute();
+                map.off('click', clickHandler); // Удаляем обработчик кликов после установки 2 маркеров
+            }
+        };
+
+        map.on('click', clickHandler);
+
+        function addMarker(coords) {
+            const marker = new mapgl.Marker(map, {
+                coordinates: coords,
+                icon: 'https://docs.2gis.com/img/dotMarker.svg',
+            });
+            markers.push(marker);
+        }
+
+        function fetchAndDrawRoute() {
             const query = {
                 type: 'pedestrian',
-                points: points,
-                use_indoor: true,
-                options: ['pedestrian_instructions'],
+                points: [
+                    { lat: points[0][1], lon: points[0][0] },
+                    { lat: points[1][1], lon: points[1][0] }
+                ],
+                use_indoor: false,
             };
 
             fetch(`https://catalog.api.2gis.ru/carrouting/6.0.0/global?key=${directionsKey}`, {
-                method: 'post',
+                method: 'POST',
                 body: JSON.stringify(query),
+                headers: { 'Content-Type': 'application/json' },
             })
-            .then(r => r.json())
-            .then(r => drawRoute(points, r.result && r.result[0]))
-            .catch(reason => console.error(reason));
+            .then(response => response.json())
+            .then(data => {
+                console.log('Route data received:', data);
+                drawRoute(data.result && data.result[0]);
+            })
+            .catch(error => console.error('Error fetching route:', error));
         }
 
-        function drawRoute(points, result) {
+        function drawRoute(result) {
             if (!result) {
                 return;
             }
 
             const data = {
                 type: 'FeatureCollection',
-                features: [
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'end',
-                            comment: 'Start',
-                        },
-                        geometry: {
-                            type: 'Point',
-                            coordinates: [points[0].x, points[0].y],
-                        },
-                    },
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'end',
-                            comment: 'End',
-                        },
-                        geometry: {
-                            type: 'Point',
-                            coordinates: [points[1].x, points[1].y],
-                        },
-                    },
-                ],
+                features: [],
             };
 
-            result.maneuvers.forEach(maneuver => {
+            data.features.push(
+                {
+                    type: 'Feature',
+                    properties: {
+                        type: 'point',
+                        comment: 'Start',
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [points[0][0], points[0][1]],
+                    },
+                },
+                {
+                    type: 'Feature',
+                    properties: {
+                        type: 'point',
+                        comment: 'End',
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [points[1][0], points[1][1]],
+                    },
+                }
+            );
+
+            let coordinates = [[points[0][0], points[0][1]]];
+
+            result.maneuvers.forEach((maneuver) => {
                 if (maneuver.outcoming_path && maneuver.outcoming_path.geometry.length) {
-                    maneuver.outcoming_path.geometry.forEach(geometry => {
-                        const coordinates = parserLineStringWKT(geometry.selection);
-                        data.features.push({
-                            type: 'Feature',
-                            properties: {
-                                type: 'path',
-                            },
-                            geometry: {
-                                type: 'LineString',
-                                coordinates,
-                            },
-                        });
+                    maneuver.outcoming_path.geometry.forEach((geometry) => {
+                        const segmentCoordinates = wktToCoordinates(geometry.selection);
+                        coordinates = coordinates.concat(segmentCoordinates);
                     });
                 }
             });
 
+            data.features.push({
+                type: 'Feature',
+                properties: {
+                    type: 'path',
+                },
+                geometry: {
+                    type: 'LineString',
+                    coordinates: coordinates,
+                },
+            });
+            console.log(JSON.stringify(data, null, 2));
+            data.features.forEach(feature => {
+                if (feature.geometry.type === 'LineString') {
+                const lineCoordinates = feature.geometry.coordinates;
+                    redMarkers.forEach(point => {
+                        for (let i = 0; i < lineCoordinates.length - 1; i++) {
+                            isPointOnRoute(point, lineCoordinates[i], lineCoordinates[i + 1]);
+                        }
+                    });
+                }
+                });
             geojsonSource.setData(data);
         }
 
-        map.on('click', (event) => {
-            points.push({
-                x: event.lngLat[0],
-                y: event.lngLat[1],
+        function wktToCoordinates(wkt) {
+            const coordsString = wkt.replace('LINESTRING(', '').replace(')', '');
+            const coordsArray = coordsString.split(',').map(coord => {
+                const [lng, lat] = coord.trim().split(' ').map(Number);
+                return [lng, lat];
+            });
+            return coordsArray;
+        }
+
+        // Функция для очистки маршрута и точек
+        function clearRoute() {
+            // Очистка точек и маркеров
+            points.length = 0;
+            markers.forEach((m) => m.destroy());
+            markers.length = 0;
+
+            // Очистка данных GeoJSON
+            geojsonSource.setData({
+                type: 'FeatureCollection',
+                features: [],
             });
 
-            if (points.length > 2) {
-                points.shift(); // Оставляем только последние две точки
+            // Перезагружаем маркеры из исходных данных
+            fetch('http://nazareq0.beget.tech:80/map.geojson', { mode: 'no-cors' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    data.features.forEach(feature => {
+                        const coord = feature.geometry.coordinates;
+                        const category = feature.properties.Category;
+                        const icon = getMarkerIcon(category);
+
+                        markers.push(
+                            new mapgl.Marker(map, {
+                                coordinates: coord,
+                                icon: icon,
+                                category: category
+                            }),
+                        );
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading GeoJSON data:', error);
+                });
+
+            // Восстанавливаем обработчик кликов
+            map.on('click', clickHandler);
+        }
+
+        // Привязываем функцию очистки к кнопке
+        document.getElementById('clear-button').addEventListener('click', clearRoute);
+
+        function getMarkerIcon(category) {
+            switch(category) {
+                case 'red':
+                    return 'http://nazareq0.beget.tech:80/markers/red.svg';
+                case 'black':
+                    return 'http://nazareq0.beget.tech:80/markers/black.svg';
+                case 'green':
+                    return 'http://nazareq0.beget.tech:80/markers/green.svg';
+                case 'yellow':
+                    return 'http://nazareq0.beget.tech:80/markers/yellow.svg';
+                default:
+                    return 'zero purpose'
             }
-
-            fetchAndDrawRoute();
-        });
-
-        function parserLineStringWKT(wkt) {
-            return wkt
-                .slice('LINESTRING('.length, -1)
-                .split(',')
-                .map(c => c.trim().split(' ').map(Number));
+        }
+        function isPointOnRoute(point, initialcoord, finalcoord) {
+            if (Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)<0.1 || Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)>0.1){
+                
+            }
+            else{
+                console.log("NOPE")
+            }
         }
     </script>
 </body>
-
 </html>
