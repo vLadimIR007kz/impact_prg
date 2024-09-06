@@ -221,6 +221,43 @@
             font-size: 16px;
             color: #333;
         }
+        .info-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .info-box {
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 2px solid #007bff;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            max-height: 115px;
+        }
+
+        .info-box.open {
+            max-height: 300px;
+            padding: 20px;
+        }
+
+        .info-box-content {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-box.open .info-box-content {
+            opacity: 1;
+        }
+
+        .info-box-toggle {
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+            color: #007bff;
+        }
     </style>
 </head>
 
@@ -235,29 +272,17 @@
         </div>
     </div>
     <div class="content">
-        <div class="testimonials">
-            <div class="testimonial">
-                <img src="https://via.placeholder.com/50" alt="Avatar">
-                <div class="testimonial-text">
-                    placeholder
+        <div class="info-section">
+            <div class="info-box" id="info-box">
+                <h2>About our project:</h2>
+                
+                <div class="info-box-content" id="info-box-content">
+                    <p>Our project is based on a 2GIS API, and is aimed on helping handicapped people navigate in the city <br>
+                        We as a team of individuals with the same goal, aim on easing the routine of people on wheelchairs <br>
+                        </p>
                 </div>
-            </div>
-            <div class="testimonial">
-                <img src="https://via.placeholder.com/50" alt="Avatar">
-                <div class="testimonial-text">
-                    placeholder
-                </div>
-            </div>
-            <div class="testimonial">
-                <img src="https://via.placeholder.com/50" alt="Avatar">
-                <div class="testimonial-text">
-                    placeholder
-                </div>
-            </div>
-            <div class="testimonial">
-                <img src="https://via.placeholder.com/50" alt="Avatar">
-                <div class="testimonial-text">
-                    placeholder
+                <div class="info-box-toggle" id="info-box-toggle">
+                    &#x25BC;
                 </div>
             </div>
         </div>
@@ -297,7 +322,7 @@
             <span class="about-popup-close" id="about-popup-close">&times;</span>
         </div>
         <div class="about-popup-content">
-            <p><strong>Instagram:</strong> @oz_jolyn</p>
+            <p><strong>Instagram:</strong> @ozjolyn</p>
             <p><strong>Telegram:</strong> @ozjolyn</p>
             <p><strong>Phone:</strong> +1234567890</p>
             <p><strong>Email:</strong> ozjolyn@example.com</p>
@@ -309,10 +334,27 @@
         const aboutUsBtn = document.getElementById("about-us-btn");
         const aboutPopup = document.getElementById("about-popup");
         const aboutPopupClose = document.getElementById("about-popup-close");
+        const infoBox = document.getElementById("info-box");
+        const infoBoxContent = document.getElementById("info-box-content");
+        const infoBoxToggle = document.getElementById("info-box-toggle");
+
+        let isOpen = false;
+
+        infoBoxToggle.addEventListener("click", () => {
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                infoBox.classList.add("open");
+                infoBoxToggle.innerHTML = "&#x25B2;";
+            } else {
+                infoBox.classList.remove("open");
+                infoBoxToggle.innerHTML = "&#x25BC;";
+            }
+        });
         const map = new mapgl.Map('container', {
             center: [76.889709, 43.238949],
             zoom: 13,
-            key: '0cfd5100-db6b-4828-9c5e-bcbbd5d2a725',
+            key: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
         });
         aboutUsBtn.addEventListener("click", () => {
             aboutPopup.classList.add("open");
@@ -323,7 +365,7 @@
         });
 
         const directions = new mapgl.Directions(map, {
-            directionsApiKey: '0cfd5100-db6b-4828-9c5e-bcbbd5d2a725',
+            directionsApiKey: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
         });
 
         const routeMarkers = [];
@@ -502,6 +544,8 @@ function setRating(index) {
         }
     });
 }
+
+
 
 
         fetch('http://localhost:80/impact_prg/2gis/map.geojson')
