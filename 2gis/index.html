@@ -1,205 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>2GIS Navi API</title>
-        <meta name="description" content="Navi API directions example" />
-        <style>
-            html,
-            body,
-            #container {
-                margin: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-            }
-            #reset {
-                padding: 4px 10px;
-                background: #00a81f;
-                border-radius: 4px;
-                box-shadow: 0 1px 3px 0 rgba(38, 38, 38, 0.5);
-                border: none;
-                color: #fff;
-                font-size: 13px;
-                cursor: pointer;
-            }
-            #reset:disabled {
-                background: #f2f2f2;
-                color: #6e6d6d;
-                cursor: default;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="container"></div>
-        <script src="https://mapgl.2gis.com/api/js/v1"></script>
-        <script src="https://unpkg.com/@2gis/mapgl-directions@^2/dist/directions.js"></script>
-        <script>
-            const map = new mapgl.Map('container', {
-                center: [37.668598, 55.76259],
-                zoom: 13,
-                key: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
-            });
-            const geojsonSource = new mapgl.GeoJsonSource(map, {
-            data: {
-                type: 'FeatureCollection',
-                features: [],
-            },
-            attributes: {
-                foo: 'bar',
-            },});
-            const directions = new mapgl.Directions(map, {
-                // This key can be used for demo purpose only!
-                // You can get your own key on http://partner.api.2gis.ru/
-                directionsApiKey: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
-            });
-            const markers = [];
-            const directionsKey='eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9'
-            let firstPoint;
-            let secondPoint;
-            // A current selecting point
-            let selecting = 'a';
-            const buttonText = ['Choose two points on the map', 'Reset points'];
 
-            const controlsHtml = `<button id="reset" disabled>${buttonText[0]}</button> `;
-            new mapgl.Control(map, controlsHtml, {
-                position: 'topLeft',
-            });
-            const resetButton = document.getElementById('reset');
-             let showPoints = true;
-        let showAlways = false;
-        map.setStyleState({
-            showPoints,
-            showAlways,
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2GIS Navi API</title>
+    <meta name="description" content="Navi API directions example" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 2px solid #007bff;
+        }
+
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+            transition: all .2s ease-in-out;
+        }
+
+        .button:active {
+            transform: scale(1.05);
+            transition: all .2s ease-in-out;
+        }
+
+        .content {
+            display: flex;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .testimonials {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .testimonial {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 2px solid #007bff;
+        }
+
+        .testimonial img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .map-container {
+            flex-shrink: 0;
+            margin-left: 20px;
+            position: relative;
+        }
+
+        #container {
+            width: 1000px;
+            height: 450px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+            z-index: 1000;
+            border: 2px solid #007bff;
+        }
+
+        .popup.open {
+            display: block;
+        }
+
+        .popup-header {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .popup-content {
+            margin-bottom: 20px;
+        }
+
+        .popup-close {
+            display: inline-block;
+            margin-left: 10px;
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .rating {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+            direction: ltr;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 20px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .rating input:checked~label,
+        .rating input:checked~label~label {
+            color: #ccc;
+        }
+
+        .rating input:checked+label,
+        .rating input:checked+label~label {
+            color: #f0ad4e;
+        }
+
+        .rating label:hover,
+        .rating label:hover~label {
+            color: #f0ad4e;
+        }
+
+        .banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            border-top: 2px solid #007bff;
+        }
+
+       
+        .about-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    z-index: 2000;
+    border: 2px solid #007bff;
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.about-popup.open {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+
+        .about-popup-header {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-popup-close {
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .about-popup-content {
+            font-size: 16px;
+            color: #333;
+        }
+        .info-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .info-box {
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 2px solid #007bff;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            max-height: 115px;
+        }
+
+        .info-box.open {
+            max-height: 300px;
+            padding: 20px;
+        }
+
+        .info-box-content {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-box.open .info-box-content {
+            opacity: 1;
+        }
+
+        .info-box-toggle {
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+            color: #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="site-name">Oz Jolyn</div>
+        <div>
+            <button class="button">placeholder</button>
+            <button class="button">placeholder</button>
+            <button class="button">placeholder</button>
+            <button class="button" id="about-us-btn">About us</button>
+        </div>
+    </div>
+    <div class="content">
+        <div class="info-section">
+            <div class="info-box" id="info-box">
+                <h2>About our project:</h2>
+                
+                <div class="info-box-content" id="info-box-content">
+                    <p>Our project is based on a 2GIS API, and is aimed on helping handicapped people navigate in the city <br>
+                        We as a team of individuals with the same goal, aim on easing the routine of people on wheelchairs <br>
+                        </p>
+                </div>
+                <div class="info-box-toggle" id="info-box-toggle">
+                    &#x25BC;
+                </div>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <div id="container"></div>
+            <div class="popup" id="popup">
+                <div class="popup-header">
+                    <span id="popup-title">Point Information</span>
+                    <span class="popup-close" id="popup-close">&times;</span>
+                </div>
+                <div class="popup-content" id="popup-content">
+                 
+                </div>
+                <div class="rating">
+                    <input type="radio" name="rating" id="star5" value="5"><label for="star5">&#9733;</label>
+                    <input type="radio" name="rating" id="star4" value="4"><label for="star4">&#9733;</label>
+                    <input type="radio" name="rating" id="star3" value="3"><label for="star3">&#9733;</label>
+                    <input type="radio" name="rating" id="star2" value="2"><label for="star2">&#9733;</label>
+                    <input type="radio" name="rating" id="star1" value="1"><label for="star1">&#9733;</label>
+                </div>
+                
+                <textarea id="comment" placeholder="Leave a comment..." rows="3" style="width: 100%;"></textarea>
+                <button class="button" id="submit-review">Submit Review</button>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <p>Advertisement</p>
+    </div>
+    <script src="https://mapgl.2gis.com/api/js/v1"></script>
+    <script src="https://unpkg.com/@2gis/mapgl-directions@^2/dist/directions.js"></script>
+   
+    <div class="about-popup" id="about-popup">
+        <div class="about-popup-header">
+            <span>About Us</span>
+            <span class="about-popup-close" id="about-popup-close">&times;</span>
+        </div>
+        <div class="about-popup-content">
+            <p><strong>Instagram:</strong> @ozjolyn</p>
+            <p><strong>Telegram:</strong> @ozjolyn</p>
+            <p><strong>Phone:</strong> +1234567890</p>
+            <p><strong>Email:</strong> ozjolyn@example.com</p>
+        </div>
+    </div>
+
+    <script src="https://maps.api.2gis.com/2.0/loader.js?pkg=full"></script>
+    <script>
+        const buttonText = ['Choose two points on the map', 'Reset points'];
+        const controlsHtml = `<button id="reset" disabled>${buttonText[0]}</button>`;
+        const aboutUsBtn = document.getElementById("about-us-btn");
+        const aboutPopup = document.getElementById("about-popup");
+        const aboutPopupClose = document.getElementById("about-popup-close");
+        const infoBox = document.getElementById("info-box");
+        const infoBoxContent = document.getElementById("info-box-content");
+        const infoBoxToggle = document.getElementById("info-box-toggle");
+        let isOpen = false;
+        
+        infoBoxToggle.addEventListener("click", () => {
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                infoBox.classList.add("open");
+                infoBoxToggle.innerHTML = "&#x25B2;";
+            } else {
+                infoBox.classList.remove("open");
+                infoBoxToggle.innerHTML = "&#x25BC;";
+            }
+        });
+        aboutUsBtn.addEventListener("click", () => {
+            aboutPopup.classList.add("open");
         });
 
-        // Add styles for points and segments
+        aboutPopupClose.addEventListener("click", () => {
+            aboutPopup.classList.remove("open");
+        });
+        const map = new mapgl.Map('container', {
+            center: [76.8512, 43.2220],
+            zoom: 15,
+            key: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
+        });
+        new mapgl.Control(map, controlsHtml, {
+        position: 'topLeft',
+        });
+        let trynumber=1;
+        const redMarkers=[];
+        const greenMarkers=[];
+        const directionsKey = 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9';
+        let points = [];
+        const markers = [];
+        let geojsonSource;
+        let clickHandler;
+        const popup = document.getElementById('popup');
+        const popupTitle = document.getElementById('popup-title');
+        const popupContent = document.getElementById('popup-content');
+        const popupClose = document.getElementById('popup-close');
+        const submitReviewButton = document.getElementById('submit-review');
+
+        popupClose.addEventListener('click', () => {
+            popup.classList.remove('open');
+        });
+        // Создаем источник данных GeoJSON
         map.once('styleload', () => {
-            const whiteLineStyle = {
-                width: 9,
-                color: '#fff',
-            };
-            const lineStyle = {
-                width: 5,
-                color: ['match', ['get', 'index'], [-1], '#ccc', [0], '#00ff00', [1], '#0000ff', '#ff0000'],
-            };
-
-            // Lines which are showing under houses
-            const lineFilter = [
-                'all',
-                ['==', ['sourceAttr', 'foo'], 'bar'],
-                ['==', ['get', 'type'], 'path'],
-                ['==', ['global', 'showAlways'], false],
-                [
-                    'any',
-                    ['==', ['get', 'floorId'], null],
-                    ['in', ['get', 'floorId'], ['global', '_activeFloorIds']],
-                ],
-            ];
-            map.addLayer(
-                {
-                    id: 'my-line-white',
-                    type: 'line',
-                    filter: lineFilter,
-                    style: whiteLineStyle,
+            geojsonSource = new mapgl.GeoJsonSource(map, {
+                data: {
+                    type: 'FeatureCollection',
+                    features: [],
                 },
-                '344517',
-            );
-            map.addLayer(
-                {
-                    id: 'my-line',
-                    type: 'line',
-                    filter: lineFilter,
-                    style: lineStyle,
+                attributes: {
+                    foo: 'bar',
                 },
-                '344517',
-            );
-
-            // Lines which are showing under houses
-            const lineAboveFilter = [
-                'all',
-                ['==', ['sourceAttr', 'foo'], 'bar'],
-                ['==', ['get', 'type'], 'path'],
-                ['==', ['global', 'showAlways'], true],
-            ];
-            map.addLayer({
-                id: 'my-line-white-above',
-                type: 'line',
-                filter: lineAboveFilter,
-                style: whiteLineStyle,
             });
+
             map.addLayer({
-                id: 'my-line-above',
+                id: 'my-line',
                 type: 'line',
-                filter: lineAboveFilter,
-                style: lineStyle,
+                source: geojsonSource,
+                filter: [
+                    'all',
+                    ['==', ['sourceAttr', 'foo'], 'bar'],
+                    ['==', ['get', 'type'], 'path']
+                ],
+                style: {
+                    color: '#00ff00', // Зеленый цвет для линии маршрута
+                    width: 5,
+                },
             });
 
             map.addLayer({
                 id: 'my-point',
                 type: 'point',
+                source: geojsonSource,
                 filter: [
                     'all',
-                    ['global', 'showPoints'],
                     ['==', ['sourceAttr', 'foo'], 'bar'],
-                    ['==', ['get', 'type'], 'point'],
-                    [
-                        'any',
-                        ['==', ['global', 'showAlways'], true],
-                        ['==', ['get', 'floorId'], null],
-                        ['in', ['get', 'floorId'], ['global', '_activeFloorIds']],
-                    ],
+                    ['==', ['get', 'type'], 'point']
                 ],
                 style: {
-                    iconImage: 'ent',
+                    iconImage: 'https://docs.2gis.com/img/dotMarker.svg',
                     iconWidth: 15,
                     textFont: 'Noto_Sans',
                     textFontSize: 10,
                     textField: ['get', 'comment'],
-                    iconPriority: 1000,
-                    textPriority: 1000,
                     textHaloWidth: 1,
                     textHaloColor: '#fff',
-                    allowOverlap: true,
-                },
-            });
-            map.addLayer({
-                id: 'my-point-end',
-                type: 'point',
-                filter: ['all', ['==', ['sourceAttr', 'foo'], 'bar'], ['==', ['get', 'type'], 'end']],
-                style: {
-                    iconImage: [
-                        'match',
-                        [
-                            'any',
-                            ['==', ['get', 'floorId'], null],
-                            ['==', ['global', 'showAlways'], true],
-                            ['in', ['get', 'floorId'], ['global', '_activeFloorIds']],
-                        ],
-                        [true],
-                        'ent_i',
-                        'ent',
-                    ],
-                    iconWidth: 30,
-                    textFont: 'Noto_Sans_Semibold',
-                    textFontSize: 14,
-                    textField: ['get', 'comment'],
-                    iconPriority: 2000,
-                    textPriority: 2000,
-                    textColor: '#fff',
-                    textPlacement: 'centerCenter',
+                    textColor: '#000',
                 },
             });
         });
-            resetButton.addEventListener('click', function() {
-                selecting = 'a';
-                firstPoint = undefined;
-                secondPoint = undefined;
-                directions.clear();
-                this.disabled = true;
-                this.textContent = buttonText[0];
-                fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+
+        fetch('http://nazareq0.beget.tech:80/map.geojson', { mode: 'no-cors' })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -207,118 +441,193 @@
                 return response.json();
             })
             .then(data => {
-                data.features.forEach(feature =>{
+
+                data.features.forEach(feature => {
                     const coord = feature.geometry.coordinates;
                     const properties = feature.properties;
                     const category = feature.properties.Category;
-                    const icon = getMarkerIcon(category)
+                    const icon = getMarkerIcon(category);
 
-                    console.log(coord)
-                    console.log(properties)
-                    markers.push(
-                            new mapgl.Marker(map,{
-                                    coordinates:coord,
-                                    icon: icon,
-                            }),
-                        );
-                });
-                
-            })
-            .catch(error => {
-                console.error('Error loading GeoJSON data:', error);
-            });
-            });
-            var points=[];
-            map.on('click', (e) => {
-                const coords = e.lngLat;
+                    // Проверяем, является ли иконка красной
 
-                if (selecting != 'end') {
-                    // Just to visualize selected points, before the route is done
                     markers.push(
                         new mapgl.Marker(map, {
-                            coordinates: coords,
-                            icon: 'https://docs.2gis.com/img/dotMarker.svg',
-                        }),
-                    );
-                }
-
-                if (selecting === 'a') {
-                    firstPoint = coords;
-                    selecting = 'b';
-                } else if (selecting === 'b') {
-                    secondPoint = coords;
-                    selecting = 'end';
-                }
-
-                // If all points are selected — we can draw the route
-                if (firstPoint && secondPoint) {
-                    fetch(('http://localhost:80/impact_prg/2gis/map.geojson'))
-                    .then(response => {
-                    if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                            coordinates: coord,
+                            icon: icon,
+                            category: category
+                        }).on('click', () => {
+                        showPopup(properties);
+                    }));
+                    if (category=='red'){
+                        redMarkers.push(coord);
+                        console.log(redMarkers);
                     }
-                    return response.json();
-                    })
-                    .then(data => {
-                    data.features.forEach(feature =>{
 
-                    });
-                })
-                .catch(error => {
-                    console.error('Error loading GeoJSON data:', error);
+                    if(category=='green'){
+                        greenMarkers.push(coord);
+                        console.log(greenMarkers);
+                    }
                 });
-                if(points[0]!=null  && points[1]!=null){
-                points.push({
-                    type: 'pedo',
-                    x: firstPoint[0],
-                    y: firstPoint[1],
 
-                })
-                points.push({
-                    type: 'pedo',
-                    x: secondPoint[0],
-                    y: secondPoint[1],
+            })
+            .catch(error => {
+                console.error('Error loading GeoJSON data:', error);
+            });
+        const resetButton = document.getElementById('reset');
+        resetButton.addEventListener('click', clearRoute);
+        // Обработчик кликов на карту
+        clickHandler = (event) => {
+            if (points.length >= 2) return; // Не добавляем больше маркеров, если уже установлены 2
 
-                })}
-                else{
-                    points=[];
-                    points.push({
-                        type: 'pedo',
-                        x: firstPoint[0],
-                        y: firstPoint[1],
+            const coords = event.lngLat;
+            points.push([coords[0], coords[1]]);
+            addMarker(coords);
+            if (points.length > 1) {
+                resetButton.disabled = false; 
+                resetButton.textContent = buttonText[1];
+                fetchAndDrawRoute();
+                map.off('click', clickHandler); // Удаляем обработчик кликов после установки 2 маркеров
+            }
+        };
 
-                    })
-                    points.push({
-                        type: 'pedo',
-                        x: secondPoint[0],
-                        y: secondPoint[1],
+        map.on('click', clickHandler);
 
-                })
-                }
-                    const query = {
-                        type: 'pedestrian',
-                        points,
-                        options: ['pedestrian_instructions'],
+        function addMarker(coords) {
+            const marker = new mapgl.Marker(map, {
+                coordinates: coords,
+                icon: 'https://docs.2gis.com/img/dotMarker.svg',
+            });
+            markers.push(marker);
+        }
+
+        function fetchAndDrawRoute() {
+            const query = {
+                type: 'pedestrian',
+                points: points.map((point, index) => {
+                return {
+                    type: index === 0 || index === points.length - 1 ? 'walking' : 'pref', // Начальная и конечная точки - walking, промежуточные - pref
+                    x: point[0], // долгота
+                    y: point[1], // широта
                     };
+                }),
+                use_indoor: false,
+            };
 
-                    return fetch(`https://catalog.api.2gis.ru/carrouting/6.0.0/global?key=${directionsKey}`, {
-                        method: 'post',
-                        body: JSON.stringify(query),
-                    })
-                    .then((r) => {
-                        if (r.status !== 200) {
-                            throw new Error(`HTTP code is ${r.status}`);
-                        }
-                        return r.json();
-                    })
-                    .then((r) => drawRoute(query.points, r.result && r.result[0]))
-                    .catch((reason) => console.error(reason));
-                    markers.forEach((m) => {
-                        m.destroy();
+            fetch(`https://catalog.api.2gis.ru/carrouting/6.0.0/global?key=${directionsKey}`, {
+                method: 'POST',
+                body: JSON.stringify(query),
+                headers: { 'Content-Type': 'application/json' },
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Route data received:', data);
+                drawRoute(data.result && data.result[0]);
+            })
+            .catch(error => console.error('Error fetching route:', error));
+        }
+
+        function drawRoute(result) {
+            if (!result) {
+                return;
+            }
+
+            const data = {
+                type: 'FeatureCollection',
+                features: [],
+            };
+
+            data.features.push(
+                {
+                    type: 'Feature',
+                    properties: {
+                        type: 'point',
+                        comment: 'Start',
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [points[0][0], points[0][1]],
+                    },
+                },
+                {
+                    type: 'Feature',
+                    properties: {
+                        type: 'point',
+                        comment: 'End',
+                    },
+                    geometry: {
+                        type: 'Point',
+                        coordinates: [points[1][0], points[1][1]],
+                    },
+                }
+            );
+
+            let coordinates = [[points[0][0], points[0][1]]];
+
+            result.maneuvers.forEach((maneuver) => {
+                if (maneuver.outcoming_path && maneuver.outcoming_path.geometry.length) {
+                    maneuver.outcoming_path.geometry.forEach((geometry) => {
+                        const segmentCoordinates = wktToCoordinates(geometry.selection);
+                        coordinates = coordinates.concat(segmentCoordinates);
                     });
-                    resetButton.disabled = false;
-                    resetButton.textContent = buttonText[1];
-                   fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+                }
+            });
+
+            data.features.push({
+                type: 'Feature',
+                properties: {
+                    type: 'path',
+                },
+                geometry: {
+                    type: 'LineString',
+                    coordinates: coordinates,
+                },
+            });
+            console.log(JSON.stringify(data, null, 2));
+            data.features.forEach(feature => {
+                if (feature.geometry.type === 'LineString') {
+                const lineCoordinates = feature.geometry.coordinates;
+                    redMarkers.forEach(point => {
+                        for (let i = 0; i < lineCoordinates.length - 1; i++) {
+                            if(isPointOnRoute(point, lineCoordinates[i], lineCoordinates[i + 1])){
+                                const nearestGreen = findNearestGreen(point);
+                                if (nearestGreen && trynumber!=3){ 
+                                    points.splice(trynumber, 0, nearestGreen);
+                                    trynumber=trynumber+1;
+                                    fetchAndDrawRoute();
+                                    return;
+                                }
+                            }
+                        }
+                    });
+                }
+                });
+            geojsonSource.setData(data);
+        }
+
+        function wktToCoordinates(wkt) {
+            const coordsString = wkt.replace('LINESTRING(', '').replace(')', '');
+            const coordsArray = coordsString.split(',').map(coord => {
+                const [lng, lat] = coord.trim().split(' ').map(Number);
+                return [lng, lat];
+            });
+            return coordsArray;
+        }
+
+        // Функция для очистки маршрута и точек
+        function clearRoute() {
+            // Очистка точек и маркеров
+            points.length = 0;
+            markers.forEach((m) => m.destroy());
+            markers.length = 0;
+
+            // Очистка данных GeoJSON
+            geojsonSource.setData({
+                type: 'FeatureCollection',
+                features: [],
+            });
+
+            // Перезагружаем маркеры из исходных данных
+            fetch('http://nazareq0.beget.tech:80/map.geojson', { mode: 'no-cors' })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -326,56 +635,130 @@
                 return response.json();
             })
             .then(data => {
-                data.features.forEach(feature =>{
+
+                data.features.forEach(feature => {
                     const coord = feature.geometry.coordinates;
                     const properties = feature.properties;
                     const category = feature.properties.Category;
-                    const icon = getMarkerIcon(category)
+                    const icon = getMarkerIcon(category);
+
+                    // Проверяем, является ли иконка красной
 
                     markers.push(
-                            new mapgl.Marker(map,{
-                                    coordinates:coord,
-                                    icon: icon,
-                            }),
-                        );
+                        new mapgl.Marker(map, {
+                            coordinates: coord,
+                            icon: icon,
+                            category: category
+                        }).on('click', () => {
+                        showPopup(properties);
+                    }));
+                    if (category=='red'){
+                        redMarkers.push(coord);
+                        console.log(redMarkers);
+                    }
+
+                    if(category=='green'){
+                        greenMarkers.push(coord);
+                        console.log(greenMarkers);
+                    }
                 });
-                
+
             })
             .catch(error => {
                 console.error('Error loading GeoJSON data:', error);
             });
-                }
-            });
-            fetch('http://localhost:80/impact_prg/2gis/map.geojson')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                data.features.forEach(feature =>{
-                    const coord = feature.geometry.coordinates;
-                    const properties = feature.properties;
-                    const category = feature.properties.Category;
-                    const icon = getMarkerIcon(category)
 
-                    markers.push(
-                            new mapgl.Marker(map,{
-                                    coordinates:coord,
-                                    icon: icon,
-                                    category: category
-                            }),
-                        );
+            // Восстанавливаем обработчик кликов
+            map.on('click', clickHandler);
+            this.disabled = true; 
+            this.textContent = buttonText[0];
+        }
 
-                });
-                
-            })
-            .catch(error => {
-                console.error('Error loading GeoJSON data:', error);
-            });
-            function getMarkerIcon(category) {
-            switch(category) {
+        // Привязываем функцию очистки к кнопке
+                function showPopup(properties) {
+            popupTitle.textContent = properties.name || 'Unknown';
+            popupContent.innerHTML = `
+                <p>Address: ${properties.Address || 'N/A'}</p>
+                <p>District/Street: ${properties['District/ Street'] || 'N/A'}</p>
+                <p>Type: ${properties.Type || 'N/A'}</p>
+                <p>Category: ${properties.Category || 'N/A'}</p>
+                <p>Latitude: ${properties.Latitude || 'N/A'}</p>
+                <p>Longitude: ${properties.Longitude || 'N/A'}</p>
+                <p>Date: ${properties.Date || 'N/A'}</p>
+                <p>Photo: <a href="${properties.Photo}" target="_blank">View</a></p>
+                <p>Commentary: ${properties.Commentary || 'N/A'}</p>
+            `;
+            popup.classList.add('open');
+        }
+
+        
+        const ratingInputs = [...document.querySelectorAll('.rating input')];
+const ratingStars = [...document.querySelectorAll('.rating label')];
+let ratingValue = 0;
+
+ratingInputs.forEach((input, index) => {
+    input.addEventListener('change', () => {
+        ratingValue = input.value;
+    });
+
+    input.addEventListener('click', () => {
+        ratingValue = index + 1; 
+    });
+});
+
+submitReviewButton.addEventListener('click', () => {
+    const comment = document.getElementById('comment').value;
+    console.log(`Rating: ${ratingValue}, Comment: ${comment}`);
+    alert(`Вы оставили оценку: ${ratingValue} и комментарий: ${comment}`);
+
+    ratingInputs.forEach((input) => {
+        input.checked = false;
+    });
+    document.getElementById('comment').value = '';
+    ratingValue = 0;
+    resetRatingPreview();
+
+    popup.classList.remove('open');
+});
+
+ratingStars.forEach((star, index) => {
+    star.addEventListener('mouseenter', () => previewRating(index));
+    star.addEventListener('mouseleave', () => resetRatingPreview());
+    star.addEventListener('click', () => setRating(index));
+});
+
+function previewRating(index) {
+    ratingStars.forEach((star, i) => {
+        if (i <= index) {
+            star.style.color = '#f0ad4e';
+        } else {
+            star.style.color = '#ccc';
+        }
+    });
+}
+
+function resetRatingPreview() {
+    ratingStars.forEach((star, i) => {
+        star.style.color = '#ccc';
+    });
+    if (ratingValue > 0) {
+        setRating(ratingValue - 1); 
+    }
+}
+
+function setRating(index) {
+    ratingInputs[index].checked = true;
+    ratingValue = index + 1; 
+    ratingStars.forEach((star, i) => {
+        if (i <= index) {
+            star.style.color = '#f0ad4e';
+        } else {
+            star.style.color = '#ccc';
+        }
+    });
+}
+        function getMarkerIcon(category) {
+            switch (category) {
                 case 'red':
                     return 'http://localhost:80/impact_prg/2gis/markers/red.svg';
                 case 'black':
@@ -385,139 +768,37 @@
                 case 'yellow':
                     return 'http://localhost:80/impact_prg/2gis/markers/yellow.svg';
                 default:
-                    return 'zero purpose'
+                    return 'zero purpose';
             }
-
+        }
+        function isPointOnRoute(point, initialcoord, finalcoord) {
+            if (Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)<0.1 || Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)>0.1){
+                console.log(point);
+                return true;
             }
-            function drawRoute(points, result) {
-            if (!result) {
-                return;
+            else{
+                console.log("NOPE")
             }
-            const data = {
-                type: 'FeatureCollection',
-                features: [
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'end',
-                            comment: 'A',
-                            floorId: points[0].floor_id,
-                        },
-                        geometry: {
-                            type: 'Point',
-                            coordinates: [points[0].x, points[0].y],
-                        },
-                    },
-                    {
-                        type: 'Feature',
-                        properties: {
-                            type: 'end',
-                            comment: 'B',
-                            floorId: points[1].floor_id,
-                        },
-                        geometry: {
-                            type: 'Point',
-                            coordinates: [points[1].x, points[1].y],
-                        },
-                    },
-                ],
-            };
+        }
+        function findNearestGreen(point) {
+            let nearestPoint = null;
+            let minDistance = Infinity;
 
-            let colorIndex = 0;
-            let isFirstSegmentAdded = false;
-            let lastPoint = {
-                coordinates: [points[0].x, points[0].y],
-            };
-
-            result.maneuvers.forEach((maneuver) => {
-                if (maneuver.outcoming_path && maneuver.outcoming_path.geometry.length) {
-                    const firstCoord = parserLineStringWKT(
-                        maneuver.outcoming_path.geometry[0].selection,
-                    )[0];
-
-                    if (maneuver.comment) {
-                        data.features.push({
-                            type: 'Feature',
-                            properties: {
-                                type: 'point',
-                                comment: maneuver.comment,
-                            },
-                            geometry: {
-                                type: 'Point',
-                                coordinates: firstCoord,
-                            },
-                        });
-                    }
-
-                    if (!isFirstSegmentAdded) {
-                        isFirstSegmentAdded = true;
-                        data.features.push({
-                            type: 'Feature',
-                            properties: {
-                                type: 'path',
-                                index: -1,
-                            },
-                            geometry: {
-                                type: 'LineString',
-                                coordinates: [[points[0].x, points[0].y], firstCoord],
-                            },
-                        });
-                    }
-
-                    maneuver.outcoming_path.geometry.forEach((geometry) => {
-                        const coordinates = parserLineStringWKT(geometry.selection);
-                        data.features.push({
-                            type: 'Feature',
-                            properties: {
-                                type: 'path',
-                                index: colorIndex++ % 3,
-                            },
-                            geometry: {
-                                type: 'LineString',
-                                coordinates,
-                            },
-                        });
-                        lastPoint = {
-                            coordinates: coordinates[coordinates.length - 1],
-                        };
-                    });
-                } else if (maneuver.comment) {
-                    data.features.push({
-                        type: 'Feature',
-                        properties: {
-                            type: 'point',
-                            comment: maneuver.comment,
-                        },
-                        geometry: {
-                            type: 'Point',
-                            coordinates: lastPoint.coordinates,
-                        },
-                    });
+            greenMarkers.forEach(greenPoint => {
+                const distance = calculateDistance(point, greenPoint);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    nearestPoint = greenPoint;
                 }
             });
 
-            if (lastPoint) {
-                data.features.push({
-                    type: 'Feature',
-                    properties: {
-                        type: 'path',
-                        index: -1,
-                    },
-                    geometry: {
-                        type: 'LineString',
-                        coordinates: [lastPoint.coordinates, [points[1].x, points[1].y]],
-                    },
-                });
-            }
+            return nearestPoint;
+        }
 
-            geojsonSource.setData(data);
+         function calculateDistance(point1, point2) {
+            return Math.sqrt((point2[0]-point1[0])^2+(point2[1]-point1[1])^2);
         }
-        function parserLineStringWKT(wkt) {
-            return wkt
-                .slice('LINESTRING('.length, -1)
-                .split(',')
-                .map((c) => c.trim().split(' ').map(Number));
-        }
-        </script>
-    </body>
+    </script>
+</body>
+
 </html>

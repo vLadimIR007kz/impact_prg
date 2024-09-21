@@ -331,43 +331,6 @@
 
     <script src="https://maps.api.2gis.com/2.0/loader.js?pkg=full"></script>
     <script>
-        const aboutUsBtn = document.getElementById("about-us-btn");
-        const aboutPopup = document.getElementById("about-popup");
-        const aboutPopupClose = document.getElementById("about-popup-close");
-        const infoBox = document.getElementById("info-box");
-        const infoBoxContent = document.getElementById("info-box-content");
-        const infoBoxToggle = document.getElementById("info-box-toggle");
-
-        let isOpen = false;
-
-        infoBoxToggle.addEventListener("click", () => {
-            isOpen = !isOpen;
-
-            if (isOpen) {
-                infoBox.classList.add("open");
-                infoBoxToggle.innerHTML = "&#x25B2;";
-            } else {
-                infoBox.classList.remove("open");
-                infoBoxToggle.innerHTML = "&#x25BC;";
-            }
-        });
-        const map = new mapgl.Map('container', {
-            center: [76.889709, 43.238949],
-            zoom: 13,
-            key: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
-        });
-        aboutUsBtn.addEventListener("click", () => {
-            aboutPopup.classList.add("open");
-        });
-
-        aboutPopupClose.addEventListener("click", () => {
-            aboutPopup.classList.remove("open");
-        });
-
-        const directions = new mapgl.Directions(map, {
-            directionsApiKey: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
-        });
-
         const routeMarkers = [];
         const geoJsonMarkers = [];
         let firstPoint;
