@@ -6,40 +6,426 @@
         <title>2GIS Navi API</title>
         <meta name="description" content="Navi API directions example" />
         <style>
-            html,
-            body,
-            #container {
-                margin: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-            }
-            #reset {
-                padding: 4px 10px;
-                background: #00a81f;
-                border-radius: 4px;
-                box-shadow: 0 1px 3px 0 rgba(38, 38, 38, 0.5);
-                border: none;
-                color: #fff;
-                font-size: 13px;
-                cursor: pointer;
-            }
-            #reset:disabled {
-                background: #f2f2f2;
-                color: #6e6d6d;
-                cursor: default;
-            }
+             html, body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #007bff;
+}
+
+.site-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+}
+
+.button:active {
+    transform: scale(1.05);
+    transition: all 0.2s ease-in-out;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.info-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.info-box {
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 2px solid #007bff;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    max-height: 115px;
+}
+
+.info-box.open {
+    max-height: 300px;
+    padding: 20px;
+}
+
+.info-box-content {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.info-box.open .info-box-content {
+    opacity: 1;
+}
+
+.info-box-toggle {
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+    color: #007bff;
+}
+
+.map-container {
+    flex-shrink: 0;
+    width: 60%;
+    position: relative;
+}
+
+#container {
+    width: 100%;
+    height: 450px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    z-index: 1000;
+    border: 2px solid #007bff;
+}
+
+.popup.open {
+    display: block;
+}
+
+.popup-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.popup-content {
+    margin-bottom: 20px;
+}
+
+.popup-close {
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    border-top: 2px solid #007bff;
+}
+
+/* About Popup */
+.about-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    z-index: 2000;
+    border: 2px solid #007bff;
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.about-popup.open {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .map-container, .info-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    #container {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 10px;
+    }
+
+    .site-name {
+        font-size: 20px;
+    }
+
+    .button {
+        padding: 8px 16px;
+    }
+
+    .info-box, .map-container {
+        width: 100%;
+    }
+
+    .info-box {
+        max-width: 100%;
+    }
+
+    #container {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-name {
+        font-size: 18px;
+    }
+
+    .button {
+        padding: 6px 12px;
+    }
+
+    #container {
+        height: 250px;
+    }
+
+    .info-box {
+        max-width: 100%;
+    }
+}
         </style>
     </head>
     <body>
-        <div id="container"></div>
+        <div class="header">
+            <div class="site-name">Oz Jolyn</div>
+            <div>
+                <button class="button" id="about-us-btn">About us</button>
+            </div>
+        </div>
+        <div class="content">
+            <div class="info-section">
+                <div class="info-box" id="info-box">
+                    <h2>About our project:</h2>
+                    
+                    <div class="info-box-content" id="info-box-content">
+                        <p>Our project is based on a 2GIS API, and is aimed on helping handicapped people navigate in the city <br>
+                            We as a team of individuals with the same goal, aim on easing the routine of people on wheelchairs <br>
+                            </p>
+                    </div>
+                    <div class="info-box-toggle" id="info-box-toggle">
+                        &#x25BC;
+                    </div>
+                </div>
+            </div>
+    
+            <div class="map-container">
+                <div id="container"></div>
+                <div class="popup" id="popup">
+                    <div class="popup-header">
+                        <span id="popup-title">Point Information</span>
+                        <span class="popup-close" id="popup-close">&times;</span>
+                    </div>
+                    <div class="popup-content" id="popup-content">
+                     
+                    </div>
+                    <div class="rating">
+                        <input type="radio" name="rating" id="star5" value="5"><label for="star5">&#9733;</label>
+                        <input type="radio" name="rating" id="star4" value="4"><label for="star4">&#9733;</label>
+                        <input type="radio" name="rating" id="star3" value="3"><label for="star3">&#9733;</label>
+                        <input type="radio" name="rating" id="star2" value="2"><label for="star2">&#9733;</label>
+                        <input type="radio" name="rating" id="star1" value="1"><label for="star1">&#9733;</label>
+                    </div>
+                    
+                    <textarea id="comment" placeholder="Leave a comment..." rows="3" style="width: 100%;"></textarea>
+                    <button class="button" id="submit-review">Submit Review</button>
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <p>Advertisement</p>
+        </div>
         <script src="https://mapgl.2gis.com/api/js/v1"></script>
         <script src="https://unpkg.com/@2gis/mapgl-directions@^2/dist/directions.js"></script>
+        <div class="about-popup" id="about-popup">
+            <div class="about-popup-header">
+                <span>About Us</span>
+                <span class="about-popup-close" id="about-popup-close">&times;</span>
+            </div>
+            <div class="about-popup-content">
+                <p><strong>Instagram:</strong> @ozjolyn</p>
+                <p><strong>Telegram:</strong> @ozjolyn</p>
+                <p><strong>Phone:</strong> +1234567890</p>
+                <p><strong>Email:</strong> ozjolyn@example.com</p>
+            </div>
+        </div>
         <script>
+        const aboutUsBtn = document.getElementById("about-us-btn");
+        const aboutPopup = document.getElementById("about-popup");
+        const aboutPopupClose = document.getElementById("about-popup-close");
+        const infoBox = document.getElementById("info-box");
+        const infoBoxContent = document.getElementById("info-box-content");
+        const infoBoxToggle = document.getElementById("info-box-toggle");
+        const popup = document.getElementById('popup');
+        const popupTitle = document.getElementById('popup-title');
+        const popupContent = document.getElementById('popup-content');
+        const popupClose = document.getElementById('popup-close');
+        const submitReviewButton = document.getElementById('submit-review'); 
+        const ratingInputs = [...document.querySelectorAll('.rating input')];
+        const ratingStars = [...document.querySelectorAll('.rating label')];
+        let ratingValue = 0; 
+        let isOpen = false;
+
+        infoBoxToggle.addEventListener("click", () => {
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                infoBox.classList.add("open");
+                infoBoxToggle.innerHTML = "&#x25B2;";
+            } else {
+                infoBox.classList.remove("open");
+                infoBoxToggle.innerHTML = "&#x25BC;";
+            }
+        });
+        aboutUsBtn.addEventListener("click", () => {
+            aboutPopup.classList.add("open");
+        });
+
+        aboutPopupClose.addEventListener("click", () => {
+            aboutPopup.classList.remove("open");
+        });
+        function showPopup(properties) {
+            popupTitle.textContent = properties.name || 'Unknown';
+            popupContent.innerHTML = `
+                <p>Address: ${properties.Address || 'N/A'}</p>
+                <p>District/Street: ${properties['District/ Street'] || 'N/A'}</p>
+                <p>Type: ${properties.Type || 'N/A'}</p>
+                <p>Category: ${properties.Category || 'N/A'}</p>
+                <p>Latitude: ${properties.Latitude || 'N/A'}</p>
+                <p>Longitude: ${properties.Longitude || 'N/A'}</p>
+                <p>Date: ${properties.Date || 'N/A'}</p>
+                <p>Photo: <a href="${properties.Photo}" target="_blank">View</a></p>
+                <p>Commentary: ${properties.Commentary || 'N/A'}</p>
+            `;
+            popup.classList.add('open');
+        }
+        popupClose.addEventListener('click', () => {
+            popup.classList.remove('open');
+        });
+        ratingInputs.forEach((input, index) => {
+            input.addEventListener('change', () => {
+            ratingValue = input.value;
+        });
+
+        input.addEventListener('click', () => {
+            ratingValue = index + 1; 
+        });
+    });
+
+    submitReviewButton.addEventListener('click', () => {
+        const comment = document.getElementById('comment').value;
+        console.log(`Rating: ${ratingValue}, Comment: ${comment}`);
+        alert(`Вы оставили оценку: ${ratingValue} и комментарий: ${comment}`);
+
+        ratingInputs.forEach((input) => {
+            input.checked = false;
+        });
+        document.getElementById('comment').value = '';
+        ratingValue = 0;
+        esetRatingPreview();
+
+        popup.classList.remove('open');
+    });
+
+    ratingStars.forEach((star, index) => {
+        star.addEventListener('mouseenter', () => previewRating(index));
+        star.addEventListener('mouseleave', () => resetRatingPreview());
+        star.addEventListener('click', () => setRating(index));
+    });
+
+    function previewRating(index) {
+        ratingStars.forEach((star, i) => {
+            if (i <= index) {
+                star.style.color = '#f0ad4e';
+            }    else {
+                star.style.color = '#ccc';
+        }
+    });
+}
+
+    function resetRatingPreview() {
+        ratingStars.forEach((star, i) => {
+           star.style.color = '#ccc';
+        });
+        if (ratingValue > 0) {
+            setRating(ratingValue - 1); 
+     }
+    }
+
+    function setRating(index) {
+        ratingInputs[index].checked = true;
+        ratingValue = index + 1; 
+        ratingStars.forEach((star, i) => {
+            if (i <= index) {
+              star.style.color = '#f0ad4e';
+            } else {
+               star.style.color = '#ccc';
+            }
+        });
+    }
+
+
             const map = new mapgl.Map('container', {
-                center: [37.668598, 55.76259],
+                center: [76.889709, 43.238949],
                 zoom: 13,
-                key: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
+                key: 'da7fa716-50e1-4025-96fb-c9250978586a',
             });
             const geojsonSource = new mapgl.GeoJsonSource(map, {
             data: {
@@ -52,10 +438,10 @@
             const directions = new mapgl.Directions(map, {
                 // This key can be used for demo purpose only!
                 // You can get your own key on http://partner.api.2gis.ru/
-                directionsApiKey: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
+                directionsApiKey: 'da7fa716-50e1-4025-96fb-c9250978586a',
             });
             const markers = [];
-            const directionsKey='eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9'
+            const directionsKey='da7fa716-50e1-4025-96fb-c9250978586a'
             let firstPoint;
             let secondPoint;
             // A current selecting point
