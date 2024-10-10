@@ -47,9 +47,11 @@
             zoom: 15,
             key: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
         });
+        let trynumber=1;
         const redMarkers=[];
+        const greenMarkers=[];
         const directionsKey = 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9';
-        const points = [];
+        let points = [];
         const markers = [];
         let geojsonSource;
         let clickHandler;
@@ -129,6 +131,11 @@
                         redMarkers.push(coord);
                         console.log(redMarkers);
                     }
+
+                    if(category=='green'){
+                        greenMarkers.push(coord);
+                        console.log(greenMarkers);
+                    }
                 });
 
             })
@@ -162,10 +169,13 @@
         function fetchAndDrawRoute() {
             const query = {
                 type: 'pedestrian',
-                points: [
-                    { lat: points[0][1], lon: points[0][0] },
-                    { lat: points[1][1], lon: points[1][0] }
-                ],
+                points: points.map((point, index) => {
+                return {
+                    type: index === 0 || index === points.length - 1 ? 'walking' : 'pref', // Начальная и конечная точки - walking, промежуточные - pref
+                    x: point[0], // долгота
+                    y: point[1], // широта
+                    };
+                }),
                 use_indoor: false,
             };
 
@@ -244,7 +254,15 @@
                 const lineCoordinates = feature.geometry.coordinates;
                     redMarkers.forEach(point => {
                         for (let i = 0; i < lineCoordinates.length - 1; i++) {
-                            isPointOnRoute(point, lineCoordinates[i], lineCoordinates[i + 1]);
+                            if(isPointOnRoute(point, lineCoordinates[i], lineCoordinates[i + 1])){
+                                const nearestGreen = findNearestGreen(point);
+                                if (nearestGreen && trynumber!=3){ 
+                                    points.splice(trynumber, 0, nearestGreen);
+                                    trynumber=trynumber+1;
+                                    fetchAndDrawRoute();
+                                    return;
+                                }
+                            }
                         }
                     });
                 }
@@ -324,11 +342,29 @@
         }
         function isPointOnRoute(point, initialcoord, finalcoord) {
             if (Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)<0.1 || Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)>0.1){
-                
+                console.log(point);
+                return true;
             }
             else{
                 console.log("NOPE")
             }
+        }
+        function findNearestGreen(point) {
+            let nearestPoint = null;
+            let minDistance = Infinity;
+
+            greenMarkers.forEach(greenPoint => {
+                const distance = calculateDistance(point, greenPoint);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    nearestPoint = greenPoint;
+                }
+            });
+
+            return nearestPoint;
+        }
+         function calculateDistance(point1, point2) {
+            return Math.sqrt((point2[0]-point1[0])^2+(point2[1]-point1[1])^2);
         }
     </script>
 </body>

@@ -328,6 +328,7 @@
 
     <script src="https://maps.api.2gis.com/2.0/loader.js?pkg=full"></script>
     <script>
+        
         const aboutUsBtn = document.getElementById("about-us-btn");
         const aboutPopup = document.getElementById("about-popup");
         const aboutPopupClose = document.getElementById("about-popup-close");
@@ -364,7 +365,6 @@
         const directions = new mapgl.Directions(map, {
             directionsApiKey: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
         });
-
         const routeMarkers = [];
         const geoJsonMarkers = [];
         let firstPoint;
@@ -372,7 +372,6 @@
         let routeCoordinates = [];
         let selecting = 'a';
         const buttonText = ['Choose two points on the map', 'Reset points'];
-
         const controlsHtml = `<button id="reset" disabled>${buttonText[0]}</button>`;
         new mapgl.Control(map, controlsHtml, {
         position: 'topLeft',
