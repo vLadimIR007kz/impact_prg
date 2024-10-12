@@ -3,8 +3,9 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>2GIS Navi API</title>
+        <title>Oz Jolin</title>
         <meta name="description" content="Navi API directions example" />
+        <link rel="shortcut icon" type="image/x-icon" href="oz-removebg-preview-_1_.ico">
         <style>
              html, body {
     margin: 0;
@@ -585,7 +586,7 @@
                 directions.clear();
                 this.disabled = true;
                 this.textContent = buttonText[0];
-                fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+                fetch('http://nazarefa.beget.tech:80/map.geojson')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -638,7 +639,7 @@
 
                 // If all points are selected — we can draw the route
                 if (firstPoint && secondPoint) {
-                    fetch(('http://localhost:80/impact_prg/2gis/map.geojson'))
+                    fetch(('http://nazarefa.beget.tech:80/map.geojson'))
                     .then(response => {
                     if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -704,7 +705,7 @@
                     });
                     resetButton.disabled = false;
                     resetButton.textContent = buttonText[1];
-                   fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+                   fetch('http://nazarefa.beget.tech:80/map.geojson')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -732,7 +733,7 @@
             });
                 }
             });
-            fetch('http://localhost:80/impact_prg/2gis/map.geojson')
+            fetch('http://nazarefa.beget.tech:80/map.geojson')
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -763,13 +764,13 @@
             function getMarkerIcon(category) {
             switch(category) {
                 case 'red':
-                    return 'http://localhost:80/impact_prg/2gis/markers/red.svg';
+                    return 'http://nazareq0.beget.tech:80/markers/red.svg';
                 case 'black':
-                    return 'http://localhost:80/impact_prg/2gis/markers/black.svg';
+                    return 'http://nazareq0.beget.tech:80/markers/black.svg';
                 case 'green':
-                    return 'http://localhost:80/impact_prg/2gis/markers/green.svg';
+                    return 'http://nazareq0.beget.tech:80/markers/green.svg';
                 case 'yellow':
-                    return 'http://localhost:80/impact_prg/2gis/markers/yellow.svg';
+                    return 'http://nazareq0.beget.tech:80/markers/yellow.svg';
                 default:
                     return 'zero purpose'
             }

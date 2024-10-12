@@ -45,12 +45,12 @@
         const map = new mapgl.Map('map', {
             center: [76.8512, 43.2220],
             zoom: 15,
-            key: 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9',
+            key: 'da7fa716-50e1-4025-96fb-c9250978586a',
         });
         let trynumber=1;
         const redMarkers=[];
         const greenMarkers=[];
-        const directionsKey = 'eeca5fe0-bc7b-44d1-8c98-b5ad1f1182f9';
+        const directionsKey = 'da7fa716-50e1-4025-96fb-c9250978586a';
         let points = [];
         const markers = [];
         let geojsonSource;
@@ -104,7 +104,7 @@
             });
         });
 
-        fetch('http://nazareq0.beget.tech:80/map.geojson', { mode: 'no-cors' })
+        fetch('http://localhost:80/impact_prg/2gis/map.geojson', { mode: 'no-cors' })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -129,12 +129,12 @@
                     );
                     if (category=='red'){
                         redMarkers.push(coord);
-                        console.log(redMarkers);
+                        
                     }
 
                     if(category=='green'){
                         greenMarkers.push(coord);
-                        console.log(greenMarkers);
+                        
                     }
                 });
 
@@ -186,7 +186,7 @@
             })
             .then(response => response.json())
             .then(data => {
-                console.log('Route data received:', data);
+                
                 drawRoute(data.result && data.result[0]);
             })
             .catch(error => console.error('Error fetching route:', error));
@@ -248,7 +248,7 @@
                     coordinates: coordinates,
                 },
             });
-            console.log(JSON.stringify(data, null, 2));
+            
             data.features.forEach(feature => {
                 if (feature.geometry.type === 'LineString') {
                 const lineCoordinates = feature.geometry.coordinates;
@@ -262,12 +262,16 @@
                                     fetchAndDrawRoute();
                                     return;
                                 }
+                                else{
+                                    console.log(trynumber)
+                                    geojsonSource.setData(data);
+                                }
                             }
                         }
                     });
                 }
                 });
-            geojsonSource.setData(data);
+            
         }
 
         function wktToCoordinates(wkt) {
@@ -285,7 +289,7 @@
             points.length = 0;
             markers.forEach((m) => m.destroy());
             markers.length = 0;
-
+            trynumber=1;
             // Очистка данных GeoJSON
             geojsonSource.setData({
                 type: 'FeatureCollection',
@@ -293,7 +297,7 @@
             });
 
             // Перезагружаем маркеры из исходных данных
-            fetch('http://nazareq0.beget.tech:80/map.geojson', { mode: 'no-cors' })
+            fetch('http://localhost:80/impact_prg/2gis/map.geojson', { mode: 'no-cors' })
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -327,22 +331,22 @@
         document.getElementById('clear-button').addEventListener('click', clearRoute);
 
         function getMarkerIcon(category) {
-            switch(category) {
+            switch (category) {
                 case 'red':
-                    return 'http://nazareq0.beget.tech:80/markers/red.svg';
+                    return 'http://localhost:80/impact_prg/2gis/markers/red.svg';
                 case 'black':
-                    return 'http://nazareq0.beget.tech:80/markers/black.svg';
+                    return 'http://localhost:80/impact_prg/2gis/markers/black.svg';
                 case 'green':
-                    return 'http://nazareq0.beget.tech:80/markers/green.svg';
+                    return 'http://localhost:80/impact_prg/2gis/markers/green.svg';
                 case 'yellow':
-                    return 'http://nazareq0.beget.tech:80/markers/yellow.svg';
+                    return 'http://localhost:80/impact_prg/2gis/markers/yellow.svg';
                 default:
-                    return 'zero purpose'
+                    return 'zero purpose';
             }
         }
         function isPointOnRoute(point, initialcoord, finalcoord) {
             if (Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)<0.1 || Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)>0.1){
-                console.log(point);
+                
                 return true;
             }
             else{
