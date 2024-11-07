@@ -4,18 +4,270 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oz Jolyn</title>
-    <meta name="description" content="Oz Jolyn" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
-    <link rel="shortcut icon" type="image/x-icon" href="oz-removebg-preview-_1_.ico" />
-   
+    <title>2GIS Navi API</title>
+    <meta name="description" content="Navi API directions example" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border: 2px solid #007bff;
+        }
+
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+            transition: all .2s ease-in-out;
+        }
+
+        .button:active {
+            transform: scale(1.05);
+            transition: all .2s ease-in-out;
+        }
+
+        .content {
+            display: flex;
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .testimonials {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .testimonial {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 2px solid #007bff;
+        }
+
+        .testimonial img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .map-container {
+            flex-shrink: 0;
+            margin-left: 20px;
+            position: relative;
+        }
+
+        #container {
+            width: 1000px;
+            height: 450px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 300px;
+            z-index: 1000;
+            border: 2px solid #007bff;
+        }
+
+        .popup.open {
+            display: block;
+        }
+
+        .popup-header {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .popup-content {
+            margin-bottom: 20px;
+        }
+
+        .popup-close {
+            display: inline-block;
+            margin-left: 10px;
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .rating {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 10px;
+            direction: ltr;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 20px;
+            color: #ccc;
+            cursor: pointer;
+        }
+
+        .rating input:checked~label,
+        .rating input:checked~label~label {
+            color: #ccc;
+        }
+
+        .rating input:checked+label,
+        .rating input:checked+label~label {
+            color: #f0ad4e;
+        }
+
+        .rating label:hover,
+        .rating label:hover~label {
+            color: #f0ad4e;
+        }
+
+        .banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            border-top: 2px solid #007bff;
+        }
+
+       
+        .about-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    z-index: 2000;
+    border: 2px solid #007bff;
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.about-popup.open {
+    display: block;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+
+        .about-popup-header {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-popup-close {
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        .about-popup-content {
+            font-size: 16px;
+            color: #333;
+        }
+        .info-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .info-box {
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 2px solid #007bff;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            max-height: 115px;
+        }
+
+        .info-box.open {
+            max-height: 300px;
+            padding: 20px;
+        }
+
+        .info-box-content {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-box.open .info-box-content {
+            opacity: 1;
+        }
+
+        .info-box-toggle {
+            text-align: center;
+            cursor: pointer;
+            margin-top: 10px;
+            color: #007bff;
+        }
+    </style>
 </head>
 
 <body>
     <div class="header">
         <div class="site-name">Oz Jolyn</div>
         <div>
+            <button class="button">placeholder</button>
+            <button class="button">placeholder</button>
+            <button class="button">placeholder</button>
             <button class="button" id="about-us-btn">About us</button>
         </div>
     </div>
@@ -108,9 +360,9 @@
             aboutPopup.classList.remove("open");
         });
         const map = new mapgl.Map('container', {
-            center: [76.913392, 43.242589],
+            center: [76.8512, 43.2220],
             zoom: 15,
-            key: '931bae58-011d-4c0c-9337-1311ad5bf3da',
+            key: 'da7fa716-50e1-4025-96fb-c9250978586a',
         });
         new mapgl.Control(map, controlsHtml, {
         position: 'topLeft',
@@ -118,7 +370,7 @@
         let trynumber=1;
         const redMarkers=[];
         const greenMarkers=[];
-        const directionsKey = '931bae58-011d-4c0c-9337-1311ad5bf3da';
+        const directionsKey = 'da7fa716-50e1-4025-96fb-c9250978586a';
         let points = [];
         const markers = [];
         let geojsonSource;
@@ -181,7 +433,7 @@
             });
         });
 
-        fetch('http://reginaf8.beget.tech:80/map.geojson', { mode: 'no-cors' })
+        fetch('http://nazarefa.beget.tech:80/map.geojson', { mode: 'no-cors' })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -208,10 +460,13 @@
                     }));
                     if (category=='red'){
                         redMarkers.push(coord);
+                        console.log(redMarkers);
                     }
 
                     if(category=='green'){
+                        console.log(coord)
                         greenMarkers.push(coord);
+                        console.log(greenMarkers);
                     }
                 });
 
@@ -266,6 +521,7 @@
             })
             .then(response => response.json())
             .then(data => {
+                console.log('Route data received:', data);
                 drawRoute(data.result && data.result[0]);
             })
             .catch(error => console.error('Error fetching route:', error));
@@ -327,30 +583,26 @@
                     coordinates: coordinates,
                 },
             });
+            console.log(JSON.stringify(data, null, 2));
             data.features.forEach(feature => {
                 if (feature.geometry.type === 'LineString') {
                 const lineCoordinates = feature.geometry.coordinates;
                     redMarkers.forEach(point => {
                         for (let i = 0; i < lineCoordinates.length - 1; i++) {
                             if(isPointOnRoute(point, lineCoordinates[i], lineCoordinates[i + 1])){
-                                let nearestGreen = findNearestGreen(point);
-                                console.log(nearestGreen);
+                                const nearestGreen = findNearestGreen(point);
                                 if (nearestGreen && trynumber!=3){ 
                                     points.splice(trynumber, 0, nearestGreen);
-                                    console.log(points);
                                     trynumber=trynumber+1;
                                     fetchAndDrawRoute();
                                     return;
-                                }
-                                else{
-                                    geojsonSource.setData(data);
                                 }
                             }
                         }
                     });
                 }
                 });
-            
+            geojsonSource.setData(data);
         }
 
         function wktToCoordinates(wkt) {
@@ -365,10 +617,10 @@
         // Функция для очистки маршрута и точек
         function clearRoute() {
             // Очистка точек и маркеров
+            trynumber=1;
             points.length = 0;
             markers.forEach((m) => m.destroy());
             markers.length = 0;
-            trynumber=1;
 
             // Очистка данных GeoJSON
             geojsonSource.setData({
@@ -377,7 +629,7 @@
             });
 
             // Перезагружаем маркеры из исходных данных
-            fetch('http://reginaf8.beget.tech:80/map.geojson', { mode: 'no-cors' })
+            fetch('http://nazarefa.beget.tech:80/map.geojson', { mode: 'no-cors' })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -402,6 +654,16 @@
                         }).on('click', () => {
                         showPopup(properties);
                     }));
+                    if (category=='red'){
+                        redMarkers.push(coord);
+                        console.log(redMarkers);
+                    }
+
+                    if(category=='green'){
+                        greenMarkers.push(coord);
+                        console.log(
+                            greenMarkers);
+                    }
                 });
 
             })
@@ -499,21 +761,22 @@ function setRating(index) {
     });
 }
         function getMarkerIcon(category) {
-            switch(category) {
+            switch (category) {
                 case 'red':
-                    return 'http://reginaf8.beget.tech:80/markers/red.svg';
+                    return 'http://nazarefa.beget.tech/markers/red.svg';
                 case 'black':
-                    return 'http://reginaf8.beget.tech:80/markers/black.svg';
+                    return 'http://nazarefa.beget.tech/markers/black.svg';
                 case 'green':
-                    return 'http://reginaf8.beget.tech:80/markers/green.svg';
+                    return 'http://nazarefa.beget.tech/markers/green.svg';
                 case 'yellow':
-                    return 'http://reginaf8.beget.tech:80/markers/yellow.svg';
+                    return 'http://nazarefa.beget.tech/markers/yellow.svg';
                 default:
-                    return 'zero purpose'
+                    return 'zero purpose';
             }
         }
         function isPointOnRoute(point, initialcoord, finalcoord) {
-            if (Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)==Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)){
+            if (Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)<0.1 || Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)-Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)>0.1){
+                console.log(point);
                 return true;
             }
             else{
@@ -523,24 +786,15 @@ function setRating(index) {
         function findNearestGreen(point) {
             let nearestPoint = null;
             let minDistance = Infinity;
-            let distance=0;
+
             greenMarkers.forEach(greenPoint => {
-                distance = calculateDistance(point, greenPoint);
+                const distance = calculateDistance(point, greenPoint);
                 if (distance < minDistance) {
                     minDistance = distance;
                     nearestPoint = greenPoint;
-                    console.log("YES");
-                    console.log(minDistance);
-                    console.log(distance);
                 }
-                else{
-                    console.log(minDistance);
-                    console.log(distance);
-                    console.log("NO");
-                }
-
             });
-            
+
             return nearestPoint;
         }
 
