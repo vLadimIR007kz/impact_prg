@@ -5,6 +5,7 @@ html, body {
     display: flex;
     flex-direction: column;
     height: 100%;
+    overflow-x: hidden;
 }
 
 .header {
@@ -47,13 +48,16 @@ html, body {
     display: flex;
     padding: 20px;
     flex-grow: 1;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
+    gap: 10px; 
+    max-width: 100%;
+    justify-content: center;
 }
 
 .info-section {
     flex: 1;
-    margin-right: 20px;
-    min-width: 250px; 
+    min-width: 250px;
+    max-width: 100%;
 }
 
 .info-box {
@@ -66,10 +70,12 @@ html, body {
     transition: all 0.3s ease;
     overflow: hidden;
     max-height: 115px;
+    position: relative;
 }
 
 .info-box.open {
     max-height: 300px;
+    padding: 20px;
 }
 
 .info-box-content {
@@ -84,19 +90,36 @@ html, body {
 .info-box-toggle {
     text-align: center;
     cursor: pointer;
-    margin-top: 10px;
+    font-size: 20px;
+    color: #007bff;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.info-box-toggle.open::after {
+    content: "▲";
+    font-size: 20px;
+    color: #007bff;
+}
+
+.info-box-toggle::after {
+    content: "▼";
+    font-size: 20px;
     color: #007bff;
 }
 
 .map-container {
     flex-shrink: 0;
     position: relative;
-    flex: 1; 
-    min-width: 250px; 
+    flex: 1;
+    min-width: 250px;
+    max-width: 100%;
 }
 
 #container {
-    width: 100%; 
+    width: 100%;
     height: 450px;
     border: 2px solid #007bff;
     border-radius: 8px;
@@ -133,7 +156,6 @@ html, body {
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
     border-top: 2px solid #007bff;
 }
-
 
 .about-popup {
     display: none;
