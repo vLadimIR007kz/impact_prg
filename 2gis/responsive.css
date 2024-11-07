@@ -6,11 +6,11 @@
 
     .map-container, .info-section {
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     #container {
-        height: 350px;
+        height: 550px;
     }
 }
 
@@ -36,14 +36,14 @@
     }
 
     #container {
-        height: 300px;
+        height: 80vh; 
+        margin-top: -5px;
     }
 
     .banner {
-        display: none; 
+        display: none;
     }
 }
-
 
 @media (max-width: 480px) {
     .site-name {
@@ -55,7 +55,8 @@
     }
 
     #container {
-        height: 250px;
+        height: 85vh; 
+        margin-top: -5px;
     }
 
     .info-box {
@@ -63,6 +64,6 @@
     }
 
     .banner {
-        display: none; 
+        display: none;
     }
 }
