@@ -116,8 +116,8 @@
         position: 'topLeft',
         });
         let trynumber=1;
-        const redMarkers=[];
-        const greenMarkers=[];
+        let redMarkers=[];
+        let greenMarkers=[];
         const directionsKey = '931bae58-011d-4c0c-9337-1311ad5bf3da';
         let points = [];
         const markers = [];
@@ -189,7 +189,6 @@
                 return response.json();
             })
             .then(data => {
-
                 data.features.forEach(feature => {
                     const coord = feature.geometry.coordinates;
                     const properties = feature.properties;
@@ -206,6 +205,7 @@
                         }).on('click', () => {
                         showPopup(properties);
                     }));
+                    
                     if (category=='red'){
                         redMarkers.push(coord);
                     }
@@ -247,6 +247,7 @@
         }
 
         function fetchAndDrawRoute() {
+            console.log("ЗДЕЕЕЕЕЕЕСЬ");
             const query = {
                 type: 'pedestrian',
                 points: points.map((point, index) => {
@@ -272,6 +273,7 @@
         }
 
         function drawRoute(result) {
+            console.log("ТУУУУТ");
             if (!result) {
                 return;
             }
@@ -330,14 +332,15 @@
             data.features.forEach(feature => {
                 if (feature.geometry.type === 'LineString') {
                 const lineCoordinates = feature.geometry.coordinates;
+                    console.log("УУРАААААААА");
                     redMarkers.forEach(point => {
                         for (let i = 0; i < lineCoordinates.length - 1; i++) {
                             if(isPointOnRoute(point, lineCoordinates[i], lineCoordinates[i + 1])){
+                                redMarkers=redMarkers.filter(element => element !== point);
                                 let nearestGreen = findNearestGreen(point);
                                 console.log(nearestGreen);
-                                if (nearestGreen && trynumber!=3){ 
+                                if (nearestGreen && trynumber!=2){ 
                                     points.splice(trynumber, 0, nearestGreen);
-                                    console.log(points);
                                     trynumber=trynumber+1;
                                     fetchAndDrawRoute();
                                     return;
@@ -349,6 +352,7 @@
                         }
                     });
                 }
+                geojsonSource.setData(data);
                 });
             
         }
@@ -375,7 +379,8 @@
                 type: 'FeatureCollection',
                 features: [],
             });
-
+            redMarkers=[];
+            greenMarkers=[];
             // Перезагружаем маркеры из исходных данных
             fetch('http://reginaf8.beget.tech:80/map.geojson', { mode: 'no-cors' })
             .then(response => {
@@ -402,6 +407,13 @@
                         }).on('click', () => {
                         showPopup(properties);
                     }));
+                    if (category=='red'){
+                        redMarkers.push(coord);
+                    }
+
+                    if(category=='green'){
+                        greenMarkers.push(coord);
+                    }
                 });
 
             })
@@ -512,40 +524,38 @@ function setRating(index) {
                     return 'zero purpose'
             }
         }
-        function isPointOnRoute(point, initialcoord, finalcoord) {
-            if (Math.sqrt((finalcoord[0]-initialcoord[0])^2+(finalcoord[1]-initialcoord[1])^2)==Math.sqrt((finalcoord[0]-point[0])^2+(finalcoord[1]-point[1])^2)+Math.sqrt((point[0]-initialcoord[0])^2+(point[1]-initialcoord[1])^2)){
-                return true;
-            }
-            else{
-                console.log("NOPE")
-            }
+        function isPointOnRoute(point, initialcoord, finalcoord, tolerance = 0.000009) {
+            const [x1, y1] = initialcoord;   // Начальная точка
+            const [x2, y2] = finalcoord;     // Конечная точка
+            const [px, py] = point;          // Точка, которую проверяем
+
+            // Проверяем коллинеарность точек с учетом погрешности
+            const collinear = Math.abs((py - y1) * (x2 - x1) - (y2 - y1) * (px - x1)) <= tolerance;
+
+            // Проверяем, что точка лежит между initialcoord и finalcoord с учетом погрешности
+            const withinSegment = 
+                Math.min(x1, x2) - tolerance <= px && px <= Math.max(x1, x2) + tolerance &&
+                Math.min(y1, y2) - tolerance <= py && py <= Math.max(y1, y2) + tolerance;
+
+         return collinear && withinSegment;
         }
         function findNearestGreen(point) {
             let nearestPoint = null;
             let minDistance = Infinity;
-            let distance=0;
+            let distance = 0;
             greenMarkers.forEach(greenPoint => {
                 distance = calculateDistance(point, greenPoint);
                 if (distance < minDistance) {
                     minDistance = distance;
                     nearestPoint = greenPoint;
-                    console.log("YES");
-                    console.log(minDistance);
-                    console.log(distance);
                 }
-                else{
-                    console.log(minDistance);
-                    console.log(distance);
-                    console.log("NO");
-                }
-
             });
-            
+            // Удаляем найденную ближайшую точку
+            greenMarkers = greenMarkers.filter(element => element !== nearestPoint);
             return nearestPoint;
         }
-
          function calculateDistance(point1, point2) {
-            return Math.sqrt((point2[0]-point1[0])^2+(point2[1]-point1[1])^2);
+            return Math.sqrt((point2[0]-point1[0])**2+(point2[1]-point1[1])**2);
         }
     </script>
 </body>
